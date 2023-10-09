@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Apply movement velocity
-        r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+        r2d.velocity = new Vector2(Input.GetAxis("Horizontal") * maxSpeed, r2d.velocity.y);
 
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
     private void TimeTravel()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             Vector3 timeTravelDistance = Past.position - Present.position;
             if (isPlayerInPresent)
