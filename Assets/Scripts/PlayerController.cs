@@ -130,11 +130,23 @@ public class PlayerController : MonoBehaviour
             {
                 gameObject.transform.position += timeTravelDistance;
                 isPlayerInPresent = false;
+                
+                // if time manager exists, change global time state
+                if (TimeManager.Instance)
+                {
+                    TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Past);
+                }
             }
             else
             {
                 gameObject.transform.position -= timeTravelDistance;
                 isPlayerInPresent = true;
+                
+                // if time manager exists, change global time state
+                if (TimeManager.Instance)
+                {
+                    TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Present);
+                }
             }
         }
     }
