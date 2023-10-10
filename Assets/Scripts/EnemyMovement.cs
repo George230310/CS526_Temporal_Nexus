@@ -2,40 +2,47 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 2.0f; // Adjust the speed as needed
-    public float distance = 10.0f; // The total distance to move
+    public float fallSpeed = 5.0f; // Falling speed
+    public float moveSpeed = 2.0f; // Movement speed after landing
+    public float moveDistance = 3.0f; // The total distance to move left and right
 
-    private Vector3 leftPosition;
-    private Vector3 rightPosition;
-    private bool movingRight = true;
+    private Rigidbody2D rb;
+    private bool hasLanded = false;
 
     private void Start()
     {
-        leftPosition = transform.position - Vector3.right * (distance / 2);
-        rightPosition = transform.position + Vector3.right * (distance / 2);
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0; // Initially, disable gravity
     }
 
     private void Update()
     {
-        Debug.Log("Enemy Position: " + transform.position);
-
-        if (movingRight)
+        if (!hasLanded)
         {
-            transform.position = Vector3.MoveTowards(transform.position, rightPosition, speed * Time.deltaTime);
+            // Simulate falling by applying a downward force
+            rb.AddForce(Vector2.down * fallSpeed);
 
-            if (transform.position.x >= rightPosition.x)
+            // Check if the enemy has landed on the ground
+            if (IsGrounded())
             {
-                movingRight = false;
+                hasLanded = true;
+                rb.gravityScale = 1; // Enable gravity
             }
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, leftPosition, speed * Time.deltaTime);
+            // Calculate the horizontal movement within the moveDistance
+            float horizontalInput = Mathf.PingPong(Time.time * moveSpeed, moveDistance * 2) - moveDistance;
 
-            if (transform.position.x <= leftPosition.x)
-            {
-                movingRight = true;
-            }
+            // Move the enemy left and right
+            rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        // Check if the enemy is grounded by casting a ray downward
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f);
+        return hit.collider != null;
     }
 }
