@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform Present;
 
-    private bool isPlayerInPresent = true;
+    public static bool isPlayerInPresent = true;
 
     bool facingRight = true;
     float moveDirection = 0;
