@@ -15,10 +15,6 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 1.5f;
     public Camera mainCamera;
 
-    public Transform Past;
-
-    public Transform Present;
-
     public static bool isPlayerInPresent = true;
 
     bool facingRight = true;
