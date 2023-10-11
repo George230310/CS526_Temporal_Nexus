@@ -83,12 +83,6 @@ public class PlayerController : MonoBehaviour
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
 
-        // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
-        }
-
         TimeTravel();
     }
 
@@ -125,28 +119,25 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.S))
         {
-            Vector3 timeTravelDistance = Past.position - Present.position;
             if (isPlayerInPresent)
             {
-                gameObject.transform.position += timeTravelDistance;
-                isPlayerInPresent = false;
-                
                 // if time manager exists, change global time state
                 if (TimeManager.Instance)
                 {
                     TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Past);
                 }
+
+                isPlayerInPresent = false;
             }
             else
             {
-                gameObject.transform.position -= timeTravelDistance;
-                isPlayerInPresent = true;
-                
                 // if time manager exists, change global time state
                 if (TimeManager.Instance)
                 {
                     TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Present);
                 }
+
+                isPlayerInPresent = true;
             }
         }
     }

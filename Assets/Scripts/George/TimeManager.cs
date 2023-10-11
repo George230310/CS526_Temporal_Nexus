@@ -38,7 +38,7 @@ public class TimeManager : MonoBehaviour
         CurrentGlobalTimeState = TimeState.Present;
         
         // get all multi-state object components
-        _multiStateObjectComponents = FindObjectsByType<MultiStateObjectComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToList();
+        _multiStateObjectComponents = FindObjectsOfType<MultiStateObjectComponent>(true).ToList();
         
         // call state change to present on all multi-state objects
         foreach (var multiState in _multiStateObjectComponents)
