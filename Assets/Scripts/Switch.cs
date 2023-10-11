@@ -55,6 +55,7 @@ public class Switch : MultiStateObjectComponent
                 }
                 
                 break;
+            
             case TimeState.Present:
                 _isSwitchEnabled = false;
                 

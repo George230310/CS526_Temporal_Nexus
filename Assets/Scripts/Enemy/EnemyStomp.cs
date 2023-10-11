@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyStomp : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "WeakPoint")
+        if (other.gameObject.CompareTag("WeakPoint"))
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

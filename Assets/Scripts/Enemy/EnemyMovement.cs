@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MultiStateObjectComponent
 {
     public float fallSpeed = 5.0f; // Falling speed
     public float moveSpeed = 2.0f; // Movement speed after landing
@@ -44,5 +44,19 @@ public class EnemyMovement : MonoBehaviour
         // Check if the enemy is grounded by casting a ray downward
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f);
         return hit.collider != null;
+    }
+
+    public override void OnTimeStateChange(TimeState newTimeState)
+    {
+        switch (newTimeState)
+        {
+            case TimeState.Past:
+                gameObject.SetActive(false);
+                break;
+            
+            case TimeState.Present:
+                gameObject.SetActive(true);
+                break;
+        }
     }
 }
