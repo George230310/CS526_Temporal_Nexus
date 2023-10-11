@@ -4,7 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float fallSpeed = 5.0f; // Falling speed
     public float moveSpeed = 2.0f; // Movement speed after landing
-    public float moveDistance = 3.0f; // The total distance to move left and right
+    public float moveDistance = 2.0f; // The total distance to move left and right
 
     private Rigidbody2D rb;
     private bool hasLanded = false;
