@@ -22,6 +22,10 @@ public class TimeManager : MonoBehaviour
 
     private GameObject _player;
     private PlayerController _playerController;
+    private GameHUD _gameHUD;
+    private bool _isTimeTransitionExecuting;
+
+    [SerializeField] private float timeTransitionDuration;
 
     private void Awake()
     {
@@ -53,6 +57,7 @@ public class TimeManager : MonoBehaviour
         }
         
         _player = GameObject.FindGameObjectWithTag("Player");
+        _gameHUD = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<GameHUD>();
         _playerController = _player.GetComponent<PlayerController>();
     }
 
@@ -89,6 +94,46 @@ public class TimeManager : MonoBehaviour
             
             interactionTarget = null;
         }
+    }
+
+    public void TimeTransition(TimeState newTimeState)
+    {
+        if (_isTimeTransitionExecuting)
+        {
+            return;
+        }
+        
+        _isTimeTransitionExecuting = true;
+        StartCoroutine(ExecuteTimeTransition(newTimeState));
+    }
+
+    private IEnumerator ExecuteTimeTransition(TimeState newTimeState)
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+        if (newTimeState == TimeState.Past)
+        {
+            _gameHUD.SetTextPrompt("50 years ago, same location...");
+        }
+        else if (newTimeState == TimeState.Present)
+        {
+            _gameHUD.SetTextPrompt("Back to the present...");
+        }
+
+        _gameHUD.ToggleBlackOverlay(true);
+        float half = timeTransitionDuration / 2.0f;
+        
+        _gameHUD.FadeBlackOverlay(timeTransitionDuration);
+        yield return new WaitForSeconds(half);
+        
+        ChangeCurrentGlobalTimeState(newTimeState);
+        
+        yield return new WaitForSeconds(half);
+        
+        _gameHUD.ToggleBlackOverlay(false);
+        
+        yield return new WaitForSeconds(0.2f);
+        _isTimeTransitionExecuting = false;
     }
 
     public void ChangeCurrentGlobalTimeState(TimeState newTimeState)

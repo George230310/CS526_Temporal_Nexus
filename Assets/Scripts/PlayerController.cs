@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
                 // if time manager exists, change global time state
                 if (TimeManager.Instance)
                 {
-                    TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Past);
+                    TimeManager.Instance.TimeTransition(TimeState.Past);
                 }
 
                 isPlayerInPresent = false;
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
                 // if the time manager exists, change global time state
                 if (TimeManager.Instance)
                 {
-                    TimeManager.Instance.ChangeCurrentGlobalTimeState(TimeState.Present);
+                    TimeManager.Instance.TimeTransition(TimeState.Present);
                 }
 
                 isPlayerInPresent = true;

@@ -21,6 +21,7 @@ public class Pet : MultiStateObjectComponent
         {
             case TimeState.Past:
                 _canBeSaved = true;
+                gameObject.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
                 break;
             
             case TimeState.Present:
