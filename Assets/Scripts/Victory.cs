@@ -35,4 +35,9 @@ public class Victory : MultiStateObjectComponent
                 break;
         }
     }
+
+    public override void OnInteract()
+    {
+        
+    }
 }

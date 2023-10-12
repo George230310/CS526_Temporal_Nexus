@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D mainCollider;
     private Transform t;
 
+    [SerializeField] private bool shouldCameraFollow;
+    [SerializeField] private GameObject interactionPrompt;
+
     void Start()
     {
         t = transform;
@@ -31,6 +34,11 @@ public class PlayerController : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
+        
+        if (mainCamera && shouldCameraFollow)
+        {
+            mainCamera.transform.position = new Vector3(t.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
+        }
     }
 
     void Update()
@@ -43,6 +51,14 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
+        // Camera follow
+        if (mainCamera && shouldCameraFollow)
+        {
+            mainCamera.transform.position = new Vector3(t.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
+        }
+        
+        Interact();
         
         TimeTravel();
     }
@@ -77,9 +93,28 @@ public class PlayerController : MonoBehaviour
         r2d.velocity = new Vector2(r2d.velocity.x, jumpForce);
     }
 
+    private void Interact()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (TimeManager.Instance && TimeManager.Instance.interactionTarget)
+            {
+                TimeManager.Instance.interactionTarget.OnInteract();
+            }
+        }
+    }
+
+    public void ToggleInteractionPrompt(bool enable)
+    {
+        if (interactionPrompt)
+        {
+            interactionPrompt.SetActive(enable);
+        }
+    }
+
     private void TimeTravel()
     {
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             if (isPlayerInPresent)
             {

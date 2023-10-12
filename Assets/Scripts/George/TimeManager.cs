@@ -17,6 +17,11 @@ public class TimeManager : MonoBehaviour
     private List<MultiStateObjectComponent> _multiStateObjectComponents;
     public TimeState CurrentGlobalTimeState { get; private set; }
 
+    public MultiStateObjectComponent interactionTarget = null;
+
+    private GameObject _player;
+    private PlayerController _playerController;
+
     private void Awake()
     {
         // singleton pattern
@@ -44,6 +49,44 @@ public class TimeManager : MonoBehaviour
         foreach (var multiState in _multiStateObjectComponents)
         {
             multiState.OnTimeStateChange(CurrentGlobalTimeState);
+        }
+        
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerController = _player.GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        // find the closest interactable multi-state object
+        float minDist = float.MaxValue;
+        MultiStateObjectComponent closestComp = null;
+        foreach (var comp in _multiStateObjectComponents)
+        {
+            float newDistance = Vector3.Distance(comp.gameObject.transform.position, _player.transform.position);
+            if (newDistance < minDist)
+            {
+                closestComp = comp;
+                minDist = newDistance;
+            }
+        }
+        
+        // if the closest multi-state object is close enough, set it to be the player's interaction target
+        if (minDist < 3.0f)
+        {
+            interactionTarget = closestComp;
+            if (interactionTarget)
+            {
+               _playerController.ToggleInteractionPrompt(true);
+            }
+        }
+        else
+        {
+            if (interactionTarget)
+            {
+                _playerController.ToggleInteractionPrompt(false);
+            }
+            
+            interactionTarget = null;
         }
     }
 

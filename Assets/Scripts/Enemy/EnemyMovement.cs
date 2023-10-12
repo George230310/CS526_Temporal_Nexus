@@ -59,4 +59,9 @@ public class EnemyMovement : MultiStateObjectComponent
                 break;
         }
     }
+
+    public override void OnInteract()
+    {
+        
+    }
 }

@@ -20,24 +20,6 @@ public class Switch : MultiStateObjectComponent
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _spriteRenderer.color = Color.grey;
     }
-
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // should not do anything if not enabled
-        if (!_isSwitchEnabled)
-        {
-            return;
-        }
-        
-        if (other.gameObject.CompareTag("Player"))
-        {
-            for (int i = 0; i < movableBlockEvents.Count; ++i)
-            {
-                movableBlockEvents[i].Invoke();
-            }
-        }
-    }
     
     // on time state change function of switch
     public override void OnTimeStateChange(TimeState newTimeState)
@@ -66,6 +48,17 @@ public class Switch : MultiStateObjectComponent
                 }
                 
                 break;
+        }
+    }
+
+    public override void OnInteract()
+    {
+        if (_isSwitchEnabled)
+        {
+            foreach (var e in movableBlockEvents)
+            {
+                e.Invoke();
+            }
         }
     }
 }

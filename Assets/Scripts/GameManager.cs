@@ -9,13 +9,21 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
-        EndGamePanel.SetActive(true);
+
+        if (EndGamePanel)
+        {
+            EndGamePanel.SetActive(true);
+        }
     }
 
     public void WinGame()
     {
         Time.timeScale = 0f;
-        WinGamePanel.SetActive(true);
+
+        if (WinGamePanel)
+        {
+            WinGamePanel.SetActive(true);
+        }
     }
 
     public void Reset()
