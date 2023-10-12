@@ -16,7 +16,8 @@ public class TimeManager : MonoBehaviour
 
     private List<MultiStateObjectComponent> _multiStateObjectComponents;
     public TimeState CurrentGlobalTimeState { get; private set; }
-
+    
+    // target that can be interacted by the player
     public MultiStateObjectComponent interactionTarget = null;
 
     private GameObject _player;
@@ -74,14 +75,14 @@ public class TimeManager : MonoBehaviour
         if (minDist < 3.0f)
         {
             interactionTarget = closestComp;
-            if (interactionTarget)
+            if (interactionTarget && interactionTarget.isInteractable)
             {
                _playerController.ToggleInteractionPrompt(true);
             }
         }
         else
         {
-            if (interactionTarget)
+            if (interactionTarget && interactionTarget.isInteractable)
             {
                 _playerController.ToggleInteractionPrompt(false);
             }
@@ -101,5 +102,10 @@ public class TimeManager : MonoBehaviour
                 multiState.OnTimeStateChange(CurrentGlobalTimeState);
             }
         }
+    }
+
+    public void RemoveMultiStateObject(MultiStateObjectComponent comp)
+    {
+        _multiStateObjectComponents.Remove(comp);
     }
 }
