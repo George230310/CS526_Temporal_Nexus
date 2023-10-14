@@ -20,5 +20,15 @@ public abstract class MultiStateObjectComponent : MonoBehaviour
         {
             TimeManager.Instance.RemoveMultiStateObject(this);
         }
+        
+        // in case that this object is enemy, remove it from enemy tracker as well
+        if (GameManager.Instance)
+        {
+            EnemyMovement mov = gameObject.GetComponent<EnemyMovement>();
+            if (mov)
+            {
+                GameManager.Instance.RemoveEnemyFromList(mov);
+            }
+        }
     }
 }
