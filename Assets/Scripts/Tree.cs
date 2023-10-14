@@ -35,6 +35,8 @@ public class Tree : MultiStateObjectComponent
     {
         pastState = TreeState.UNPLANTED;
         presentState = TreeState.DEAD;
+
+        SetCorrectTree();
     }
 
     public override void OnTimeStateChange(TimeState newTimeState)
