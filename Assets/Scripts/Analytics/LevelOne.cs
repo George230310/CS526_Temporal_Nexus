@@ -7,10 +7,10 @@ using UnityEngine.Networking;
 public class LevelOne : MonoBehaviour
 {
     // The URL is needed to hook up the Google Form.
-    private string URL = "";
+    private string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSe9ZGZINblJS4p9lUaTWsM7Atgwk1hcbzMO11oidGpgLOyo7g/formResponse";
     
     // The metrics to be collected for Level One
-    private long _sessionID;
+    private long _sessionID = 10;
     private int _timeTaken = 5;
     private int _timeTravelCnt = 10;
     
@@ -31,9 +31,9 @@ public class LevelOne : MonoBehaviour
     {
         // Create the form and enter responses
         WWWForm form = new WWWForm();
-        form.AddField("", sessionID);
-        form.AddField("", timeTaken);
-        form.AddField("", timeTravelCnt);
+        form.AddField("entry.1501136910", sessionID);
+        form.AddField("entry.1650174418", timeTaken);
+        form.AddField("entry.2111983385", timeTravelCnt);
         
         // Send responses and verify result
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))

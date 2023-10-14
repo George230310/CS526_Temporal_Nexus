@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public GameObject EndGamePanel;
     public GameObject WinGamePanel;
 
+    public LevelOne levelOneSubmit;
+
     public void EndGame()
     {
         Time.timeScale = 0f;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
         {
             WinGamePanel.SetActive(true);
         }
+        
+        levelOneSubmit.Send();
     }
 
     public void Reset()
