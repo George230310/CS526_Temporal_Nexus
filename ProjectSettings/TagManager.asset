@@ -7,6 +7,7 @@ TagManager:
   - WeakPoint
   - Ground
   - GameHUD
+  - Pet
   layers:
   - Default
   - TransparentFX
