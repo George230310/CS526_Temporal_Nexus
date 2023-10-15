@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5.5f;
     public float gravityScale = 2.0f;
     public Camera mainCamera;
-
+    
+    public LevelOne levelOneSubmit;
     // Tutorial flags
 
     public bool tutorialMovementEnabled = true;
@@ -128,6 +129,8 @@ float dirX = Input.GetAxis("Horizontal");
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
+            levelOneSubmit.UpdateTravel();
+            
             if (isPlayerInPresent)
             {
                 // if time manager exists, change global time state

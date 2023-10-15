@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     private List<EnemyMovement> _enemies;
     public GameObject player;
 
+    public LevelOne levelOneSubmit;
+    private float _elapsedTime;
+
     private void Awake()
     {
         // singleton pattern
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        _elapsedTime += Time.deltaTime;
+
         // find the closest enemy
         float minDist = float.MaxValue;
         EnemyMovement closestComp = null;
@@ -85,8 +90,12 @@ public class GameManager : MonoBehaviour
         {
             WinGamePanel.SetActive(true);
         }
+        
+        levelOneSubmit.UpdateTime(_elapsedTime);
+        levelOneSubmit.Send();
+        Debug.Log(_elapsedTime);
     }
-
+    
     public void Reset()
     {
         Time.timeScale = 1f;
