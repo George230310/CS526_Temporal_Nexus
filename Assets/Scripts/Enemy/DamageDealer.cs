@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterDamage : MonoBehaviour
+public class DamageDealer : MonoBehaviour
 {
     public int damage;
 
