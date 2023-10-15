@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,9 @@ public class MainMenuManager : MonoBehaviour
 
     public GameObject HelpPanel;
 
-    public void Play()
+    public void Play(string sceneName)
     {
-        SceneManager.LoadScene(StartingSceneName);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Help()

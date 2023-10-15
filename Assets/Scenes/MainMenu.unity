@@ -426,8 +426,8 @@ RectTransform:
   - {fileID: 131647048}
   - {fileID: 1441774143}
   - {fileID: 1737380595}
-  - {fileID: 2123036517}
   - {fileID: 354592098}
+  - {fileID: 2123036517}
   m_Father: {fileID: 1949768023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +507,7 @@ RectTransform:
   m_Children:
   - {fileID: 1051332112}
   m_Father: {fileID: 307498381}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -560,14 +560,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662140054}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: Help
-        m_Mode: 1
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &354592100
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7d4f765e12906408ac188275a47bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingSceneName: Env
+  StartingSceneName: level_tutorial
   HelpPanel: {fileID: 2123036516}
 --- !u!4 &662140055
 Transform:
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 1441774145}
   - component: {fileID: 1441774144}
   m_Layer: 0
-  m_Name: Play Button
+  m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,13 +1165,13 @@ MonoBehaviour:
       - m_Target: {fileID: 662140054}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: Play
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: level_tutorial
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1441774145
@@ -1757,7 +1757,7 @@ RectTransform:
   - {fileID: 2002622448}
   - {fileID: 2140255978}
   m_Father: {fileID: 307498381}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
