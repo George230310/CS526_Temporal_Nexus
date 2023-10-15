@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class Tree : MultiStateObjectComponent
 {
+    [SerializeField] private float plantTreeCost;
+    
     private enum TreeState
     {
         UNPLANTED,
@@ -119,8 +121,9 @@ public class Tree : MultiStateObjectComponent
         {
             if (pastState == TreeState.UNPLANTED)
             {
-                pastState = TreeState.PLANTED;
-                isInteractable = false;
+                GameManager.Instance.gameHUD.optionDescription.text = "Wanna plant a tree here?";
+                GameManager.Instance.gameHUD.yesButton.onClick.AddListener(PlantTree);
+                GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(plantTreeCost);
             }
         }
 
@@ -128,11 +131,32 @@ public class Tree : MultiStateObjectComponent
         {
             if (presentState == TreeState.GROWN)
             {
-                presentState = TreeState.CUT;
-                isInteractable = false;
+                GameManager.Instance.gameHUD.optionDescription.text = "You chopped down this tree...";
+                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
+                CutDownTree();
+            }
+            else
+            {
+                if (GameManager.Instance)
+                {
+                    GameManager.Instance.gameHUD.optionDescription.text = "The land looks very fertile here. What if I plant something here in the past?";
+                    GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
+                }
             }
         }
+    }
 
+    private void PlantTree()
+    {
+        pastState = TreeState.PLANTED;
+        isInteractable = false;
+        SetCorrectTree();
+    }
+
+    private void CutDownTree()
+    {
+        presentState = TreeState.CUT;
+        isInteractable = false;
         SetCorrectTree();
     }
 }

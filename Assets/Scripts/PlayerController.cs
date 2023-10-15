@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 2.0f;
     public Camera mainCamera;
 
-    public Transform Past;
-    public Transform Present;
-
     // Tutorial flags
 
     public bool tutorialMovementEnabled = true;
@@ -74,8 +71,7 @@ float dirX = Input.GetAxis("Horizontal");
         
         if (tutorialTimeTravelEnabled)
         {
-
-        TimeTravel();
+            TimeTravel();
         }
     }
 

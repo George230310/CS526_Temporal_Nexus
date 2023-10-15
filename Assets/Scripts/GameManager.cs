@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance { get; private set; }
     public GameObject closestEnemyInPetRange;
+    public GameHUD gameHUD;
 
     private List<EnemyMovement> _enemies;
-    private GameObject _player;
+    public GameObject player;
 
     private void Awake()
     {
@@ -31,7 +33,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _enemies = FindObjectsOfType<EnemyMovement>(true).ToList();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
+        gameHUD = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<GameHUD>();
     }
 
     public void RemoveEnemyFromList(EnemyMovement enemy)
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
         EnemyMovement closestComp = null;
         foreach (var comp in _enemies)
         {
-            float newDistance = Vector3.Distance(comp.gameObject.transform.position, _player.transform.position);
+            float newDistance = Vector3.Distance(comp.gameObject.transform.position, player.transform.position);
             if (newDistance < minDist)
             {
                 closestComp = comp;
