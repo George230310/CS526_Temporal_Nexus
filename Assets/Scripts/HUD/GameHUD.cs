@@ -10,6 +10,14 @@ public class GameHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textPrompt;
     [SerializeField] private Image blackOverlay;
+    [SerializeField] private RectTransform optionPanel;
+
+    public TextMeshProUGUI optionDescription;
+    public TextMeshProUGUI yesButtonText;
+    public TextMeshProUGUI noButtonText;
+    
+    public Button yesButton;
+    public Button noButton;
 
     public void ToggleBlackOverlay(bool enable)
     {
@@ -32,5 +40,65 @@ public class GameHUD : MonoBehaviour
     public void SetTextPrompt(String prompt)
     {
         textPrompt.text = prompt;
+    }
+
+    public void PresentInteractionMessageOnly()
+    {
+        // pull out option panel
+        optionPanel.DOMoveY(150f, 1f);
+        
+        // disable player control
+        if (GameManager.Instance && GameManager.Instance.player)
+        {
+            GameManager.Instance.player.GetComponent<PlayerController>().enabled = false;
+        }
+        
+        // setup option buttons
+        yesButton.gameObject.SetActive(false);
+        noButton.onClick.AddListener(HideInteractionMessage);
+        noButtonText.text = "Close";
+    }
+
+    public void PresentInteractionMessageAndOptions(float yesCost)
+    {
+        // pull out option panel
+        optionPanel.DOMoveY(150f, 1f);
+        
+        // disable player control
+        if (GameManager.Instance && GameManager.Instance.player)
+        {
+            GameManager.Instance.player.GetComponent<PlayerController>().enabled = false;
+        }
+        
+        // setup option buttons
+        yesButton.gameObject.SetActive(true);
+        yesButton.onClick.AddListener(HideInteractionMessage);
+        noButton.onClick.AddListener(HideInteractionMessage);
+
+        if (yesCost > 0f)
+        {
+            yesButtonText.text = "Yes (-" + yesCost + " HP)";
+        }
+        else
+        {
+            yesButtonText.text = "Yes";
+        }
+        
+    }
+
+    public void HideInteractionMessage()
+    {
+        // lower option panel
+        optionPanel.DOMoveY(-150f, 1f);
+        
+        // enable player control
+        if (GameManager.Instance && GameManager.Instance.player)
+        {
+            GameManager.Instance.player.GetComponent<PlayerController>().enabled = true;
+        }
+        
+        // clear all button events
+        yesButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
     }
 }

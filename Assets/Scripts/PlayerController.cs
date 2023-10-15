@@ -12,8 +12,13 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 2.0f;
     public Camera mainCamera;
 
-    public Transform Past;
-    public Transform Present;
+    // Tutorial flags
+
+    public bool tutorialMovementEnabled = true;
+
+    public bool tutorialJumpEnabled = true;
+
+    public bool tutorialTimeTravelEnabled = true;
 
     private bool isPlayerInPresent = true;
     private bool facingRight = true;
@@ -44,10 +49,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Movement controls
-        float dirX = Input.GetAxis("Horizontal");
+        if (tutorialMovementEnabled)
+        {
+float dirX = Input.GetAxis("Horizontal");
         r2d.velocity = new Vector2(dirX * maxSpeed, r2d.velocity.y);
+        }
+        
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (tutorialJumpEnabled && Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
@@ -60,7 +69,10 @@ public class PlayerController : MonoBehaviour
         
         Interact();
         
-        TimeTravel();
+        if (tutorialTimeTravelEnabled)
+        {
+            TimeTravel();
+        }
     }
 
     void FixedUpdate()

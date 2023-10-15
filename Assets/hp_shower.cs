@@ -15,8 +15,7 @@ public class hp_shower : MonoBehaviour
     void Update()
     {
         gameObject.GetComponent<RectTransform>().sizeDelta=new Vector2 (intital_length * HealthComponent.health * 0.1f, gameObject.GetComponent<RectTransform>().rect.height);
-
-        Debug.Log(PlayerHealth.health);
+        
         if (HealthComponent.health >= 3)
         {
             gameObject.GetComponent<Image>().color = new Color(0, 255, 0);
