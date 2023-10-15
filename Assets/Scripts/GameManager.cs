@@ -80,6 +80,10 @@ public class GameManager : MonoBehaviour
         {
             EndGamePanel.SetActive(true);
         }
+        
+        levelOneSubmit.UpdateTime(_elapsedTime);
+        levelOneSubmit.Send();
+        Debug.Log(_elapsedTime);
     }
 
     public void WinGame()
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
         }
         
         levelOneSubmit.UpdateTime(_elapsedTime);
+        levelOneSubmit.UpdateComplete();
         levelOneSubmit.Send();
         Debug.Log(_elapsedTime);
     }
