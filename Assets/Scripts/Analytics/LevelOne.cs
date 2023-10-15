@@ -11,7 +11,7 @@ public class LevelOne : MonoBehaviour
     
     // The metrics to be collected for Level One
     private long _sessionID = 10;
-    private float _timeTaken;
+    private int _timeTaken;
     private int _timeTravelCnt;
     
     // Create a unique session ID for each run of Level One
@@ -29,7 +29,7 @@ public class LevelOne : MonoBehaviour
 
     public void UpdateTime(float tt)
     {
-        _timeTaken = tt;
+        _timeTaken = Mathf.RoundToInt(tt);
     }
 
     public void UpdateTravel()
@@ -61,17 +61,5 @@ public class LevelOne : MonoBehaviour
                 Debug.Log("Form upload complete!");
             }
         }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

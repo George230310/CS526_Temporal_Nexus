@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,12 @@ public class GameManager : MonoBehaviour
     public GameObject WinGamePanel;
 
     public LevelOne levelOneSubmit;
+    private float _elapsedTime;
+
+    private void Update()
+    {
+        _elapsedTime += Time.deltaTime;
+    }
 
     public void EndGame()
     {
@@ -27,9 +34,11 @@ public class GameManager : MonoBehaviour
             WinGamePanel.SetActive(true);
         }
         
+        levelOneSubmit.UpdateTime(_elapsedTime);
         levelOneSubmit.Send();
+        Debug.Log(_elapsedTime);
     }
-
+    
     public void Reset()
     {
         Time.timeScale = 1f;
