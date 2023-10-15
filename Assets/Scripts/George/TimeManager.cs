@@ -87,7 +87,7 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            if (interactionTarget && interactionTarget.isInteractable)
+            if (interactionTarget)
             {
                 _playerController.ToggleInteractionPrompt(false);
             }

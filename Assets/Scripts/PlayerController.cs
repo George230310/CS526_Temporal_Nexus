@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         foreach (var collider in colliders)
         {
-            if (collider != mainCollider)
+            if (collider != mainCollider && !collider.gameObject.CompareTag("Player Foot"))
             {
                 return true;
             }

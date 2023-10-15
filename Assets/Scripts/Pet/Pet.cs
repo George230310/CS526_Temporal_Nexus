@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,38 @@ public class Pet : MultiStateObjectComponent
 {
     private bool _isSaved;
     private bool _canBeSaved;
+    private bool _isAttachedToPlayer;
 
-    public void SavePet()
+    [SerializeField] private GameObject[] sprites;
+    [SerializeField] private float shootCoolDown = 0.5f;
+    [SerializeField] private GameObject bulletPrefab;
+    private float _shootTimer = 0.0f;
+
+    private void Update()
+    {
+        // shooting enemy logic
+        if (_isAttachedToPlayer)
+        {
+            _shootTimer += Time.deltaTime;
+            if (_shootTimer >= shootCoolDown)
+            {
+                _shootTimer = 0.0f;
+                
+                // if there is a target to shoot
+                if (GameManager.Instance.closestEnemyInPetRange)
+                {
+                    // fire projectile
+                    Vector3 shootDir = GameManager.Instance.closestEnemyInPetRange.transform.position - gameObject.transform.position;
+                    shootDir.Normalize();
+
+                    GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                    bullet.GetComponent<Bullet>().Setup(shootDir);
+                }
+            }
+        }
+    }
+
+    private void SavePet()
     {
         if (_canBeSaved)
         {
@@ -21,21 +52,51 @@ public class Pet : MultiStateObjectComponent
         {
             case TimeState.Past:
                 _canBeSaved = true;
-                gameObject.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
+                SetPetSprite(1);
+                
                 break;
             
             case TimeState.Present:
                 _canBeSaved = false;
-                
-                // scale the pet based on whether it is saved in the past
-                gameObject.transform.localScale = _isSaved ? new Vector3(10.0f, 10.0f, 10.0f) : new Vector3(1.0f, 1.0f, 1.0f);
-                
+                // set the sprite for the pet based on conditions
+                SetPetSprite(_isSaved ? 2 : 0);
+
                 break;
+        }
+    }
+    
+    // function to set the sprite of this pet
+    private void SetPetSprite(int idx)
+    {
+        // do nothing if the pet is already attached to player
+        if (_isAttachedToPlayer)
+        {
+            return;
+        }
+        
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].SetActive(i == idx);
         }
     }
 
     public override void OnInteract()
     {
-        SavePet();
+        // if the pet is not saved, save the pet
+        if (!_isSaved)
+        {
+            SavePet();
+        }
+        // else if the pet is saved and the time is at present
+        else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
+        {
+            // attach to the player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Transform attachmentPointTransform = player.transform.Find("PetAttachmentPoint");
+
+            gameObject.transform.position = attachmentPointTransform.position;
+            gameObject.transform.SetParent(attachmentPointTransform);
+            _isAttachedToPlayer = true;
+        }
     }
 }
