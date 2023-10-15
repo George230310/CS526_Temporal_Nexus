@@ -8571,6 +8571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndGamePanel: {fileID: 1129954807}
   WinGamePanel: {fileID: 575160552}
+  closestEnemyInPetRange: {fileID: 0}
 --- !u!4 &717266553
 Transform:
   m_ObjectHideFlags: 0
@@ -22821,6 +22822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 1
+  sprites: []
+  shootCoolDown: 0.5
+  bulletPrefab: {fileID: 0}
 --- !u!70 &2024943892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -24330,6 +24334,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6630747343478605600, guid: 930c963a10483f644a6d70c05a6e468e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630747343478605600, guid: 930c963a10483f644a6d70c05a6e468e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630747343478605600, guid: 930c963a10483f644a6d70c05a6e468e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8773230501968282779, guid: 930c963a10483f644a6d70c05a6e468e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
