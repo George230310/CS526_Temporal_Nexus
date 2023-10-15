@@ -97,8 +97,6 @@ public class Pet : MultiStateObjectComponent
                 GameManager.Instance.gameHUD.yesButton.onClick.AddListener(SavePet);
                 GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(saveCost);
             }
-            
-            SavePet();
         }
         // else if the pet is saved and the time is at present
         else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
