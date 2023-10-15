@@ -5741,6 +5741,50 @@ Transform:
   m_Father: {fileID: 1160384124}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1010128601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010128603}
+  - component: {fileID: 1010128602}
+  m_Layer: 0
+  m_Name: LevelOneAnalytics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1010128602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010128601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691475dccf4fc4a798328422aafe576d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1010128603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010128601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 129.32265, y: 84.62719, z: 3.2053268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1018709385
 GameObject:
   m_ObjectHideFlags: 0
@@ -8256,6 +8300,7 @@ MonoBehaviour:
   mainCamera: {fileID: 470702248}
   Past: {fileID: 0}
   Present: {fileID: 1985368662}
+  levelOneSubmit: {fileID: 1010128602}
   shouldCameraFollow: 1
   interactionPrompt: {fileID: 945363455}
 --- !u!212 &1403881134
@@ -13251,6 +13296,10 @@ PrefabInstance:
       propertyPath: WinGamePanel
       value: 
       objectReference: {fileID: 575160552}
+    - target: {fileID: 3738306589150144276, guid: 9e7decf688f47ca4db195926d26ed6d4, type: 3}
+      propertyPath: levelOneSubmit
+      value: 
+      objectReference: {fileID: 1010128602}
     - target: {fileID: 3738306589150144277, guid: 9e7decf688f47ca4db195926d26ed6d4, type: 3}
       propertyPath: m_RootOrder
       value: 4
