@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform Past;
     public Transform Present;
+    
+    public LevelOne levelOneSubmit;
 
     private bool isPlayerInPresent = true;
     private bool facingRight = true;
@@ -116,6 +118,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
+            levelOneSubmit.UpdateTravel();
+            
             if (isPlayerInPresent)
             {
                 // if time manager exists, change global time state

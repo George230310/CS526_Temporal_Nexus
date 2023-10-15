@@ -11,20 +11,31 @@ public class LevelOne : MonoBehaviour
     
     // The metrics to be collected for Level One
     private long _sessionID = 10;
-    private int _timeTaken = 5;
-    private int _timeTravelCnt = 10;
+    private float _timeTaken;
+    private int _timeTravelCnt;
     
     // Create a unique session ID for each run of Level One
     private void Awake()
     {
         _sessionID = DateTime.Now.Ticks;
+        _timeTravelCnt = 0;
     }
     
     // Submit the data collected to Google Form
     public void Send()
     {
         StartCoroutine(Post(_sessionID.ToString(), _timeTaken.ToString(), _timeTravelCnt.ToString()));
-    }  
+    }
+
+    public void UpdateTime(float tt)
+    {
+        _timeTaken = tt;
+    }
+
+    public void UpdateTravel()
+    {
+        _timeTravelCnt++;
+    }
     
     // The POST method
     private IEnumerator Post(String sessionID, string timeTaken, String timeTravelCnt)
