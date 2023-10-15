@@ -15,6 +15,14 @@ public class PlayerController : MonoBehaviour
     public Transform Past;
     public Transform Present;
 
+    // Tutorial flags
+
+    public bool tutorialMovementEnabled = true;
+
+    public bool tutorialJumpEnabled = true;
+
+    public bool tutorialTimeTravelEnabled = true;
+
     private bool isPlayerInPresent = true;
     private bool facingRight = true;
     private bool isGrounded = false;
@@ -44,10 +52,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Movement controls
-        float dirX = Input.GetAxis("Horizontal");
+        if (tutorialMovementEnabled)
+        {
+float dirX = Input.GetAxis("Horizontal");
         r2d.velocity = new Vector2(dirX * maxSpeed, r2d.velocity.y);
+        }
+        
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (tutorialJumpEnabled && Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
@@ -60,7 +72,11 @@ public class PlayerController : MonoBehaviour
         
         Interact();
         
+        if (tutorialTimeTravelEnabled)
+        {
+
         TimeTravel();
+        }
     }
 
     void FixedUpdate()
