@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,13 +8,65 @@ public class GameManager : MonoBehaviour
 {
     public GameObject EndGamePanel;
     public GameObject WinGamePanel;
+    
+    public static GameManager Instance { get; private set; }
+    public GameObject closestEnemyInPetRange;
+
+    private List<EnemyMovement> _enemies;
+    private GameObject _player;
 
     public LevelOne levelOneSubmit;
     private float _elapsedTime;
 
+    private void Awake()
+    {
+        // singleton pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        _enemies = FindObjectsOfType<EnemyMovement>(true).ToList();
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void RemoveEnemyFromList(EnemyMovement enemy)
+    {
+        _enemies.Remove(enemy);
+    }
+
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
+
+        // find the closest enemy
+        float minDist = float.MaxValue;
+        EnemyMovement closestComp = null;
+        foreach (var comp in _enemies)
+        {
+            float newDistance = Vector3.Distance(comp.gameObject.transform.position, _player.transform.position);
+            if (newDistance < minDist)
+            {
+                closestComp = comp;
+                minDist = newDistance;
+            }
+        }
+        
+        if (minDist < 30.0f && closestComp)
+        {
+            closestEnemyInPetRange = closestComp.gameObject;
+        }
+        else
+        {
+            closestEnemyInPetRange = null;
+        }
     }
 
     public void EndGame()
