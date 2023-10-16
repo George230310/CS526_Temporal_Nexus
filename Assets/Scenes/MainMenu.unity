@@ -1505,11 +1505,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WD to move
+  m_text: 'A D to move
 
     Spacebar to jump
 
-    S to time travel
+    T to time travel
 
     E to activate
     switches'
