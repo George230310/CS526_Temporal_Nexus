@@ -9,6 +9,7 @@ TagManager:
   - GameHUD
   - Player Foot
   - Pet
+  - TutorialVolume
   layers:
   - Default
   - TransparentFX

@@ -80,9 +80,13 @@ public class GameManager : MonoBehaviour
         {
             EndGamePanel.SetActive(true);
         }
+
+        if (levelOneSubmit)
+        {
+            levelOneSubmit.UpdateTime(_elapsedTime);
+            levelOneSubmit.Send();
+        }
         
-        levelOneSubmit.UpdateTime(_elapsedTime);
-        levelOneSubmit.Send();
         Debug.Log(_elapsedTime);
     }
 
@@ -94,10 +98,14 @@ public class GameManager : MonoBehaviour
         {
             WinGamePanel.SetActive(true);
         }
-        
-        levelOneSubmit.UpdateTime(_elapsedTime);
-        levelOneSubmit.UpdateComplete();
-        levelOneSubmit.Send();
+
+        if (levelOneSubmit)
+        {
+            levelOneSubmit.UpdateTime(_elapsedTime);
+            levelOneSubmit.UpdateComplete();
+            levelOneSubmit.Send();
+        }
+
         Debug.Log(_elapsedTime);
     }
     

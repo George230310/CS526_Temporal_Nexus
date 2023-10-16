@@ -19,6 +19,8 @@ public class GameHUD : MonoBehaviour
     public Button yesButton;
     public Button noButton;
 
+    private float _yesButtonCost;
+
     public void ToggleBlackOverlay(bool enable)
     {
         blackOverlay.gameObject.SetActive(enable);
@@ -72,17 +74,20 @@ public class GameHUD : MonoBehaviour
         
         // setup option buttons
         yesButton.gameObject.SetActive(true);
-        yesButton.onClick.AddListener(HideInteractionMessage);
-        noButton.onClick.AddListener(HideInteractionMessage);
-
+        
         if (yesCost > 0f)
         {
+            _yesButtonCost = yesCost;
+            yesButton.onClick.AddListener(DeductPlayerHealth);
             yesButtonText.text = "Yes (-" + yesCost + " HP)";
         }
         else
         {
             yesButtonText.text = "Yes";
         }
+        
+        yesButton.onClick.AddListener(HideInteractionMessage);
+        noButton.onClick.AddListener(HideInteractionMessage);
         
     }
 
@@ -100,5 +105,12 @@ public class GameHUD : MonoBehaviour
         // clear all button events
         yesButton.onClick.RemoveAllListeners();
         noButton.onClick.RemoveAllListeners();
+        _yesButtonCost = 0f;
+    }
+    
+    // deduct player health for some yes choices
+    private void DeductPlayerHealth()
+    {
+        GameManager.Instance.player.GetComponent<HealthComponent>().TakeDamage(_yesButtonCost);
     }
 }

@@ -92,7 +92,7 @@ float dirX = Input.GetAxis("Horizontal");
 
         foreach (var collider in colliders)
         {
-            if (collider != mainCollider && !collider.gameObject.CompareTag("Player Foot"))
+            if (collider != mainCollider && !collider.gameObject.CompareTag("Player Foot") && !collider.gameObject.CompareTag("TutorialVolume"))
             {
                 return true;
             }
@@ -129,7 +129,10 @@ float dirX = Input.GetAxis("Horizontal");
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            levelOneSubmit.UpdateTravel();
+            if (levelOneSubmit)
+            {
+                levelOneSubmit.UpdateTravel();
+            }
             
             if (isPlayerInPresent)
             {
