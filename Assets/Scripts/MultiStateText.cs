@@ -10,7 +10,8 @@ public class MultiStateText : MultiStateObjectComponent
     [TextArea] public String pastText;
     [TextArea] public String currentText;
 
-    private void Start()
+
+    private void Awake()
     {
         _multiStateText = GetComponent<TextMeshPro>();
     }
