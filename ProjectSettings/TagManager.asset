@@ -9,7 +9,6 @@ TagManager:
   - GameHUD
   - Player Foot
   - Pet
-  - EnemySprite
   layers:
   - Default
   - TransparentFX
