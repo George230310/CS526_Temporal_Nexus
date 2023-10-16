@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 7521332932337995655}
   - component: {fileID: 7521332932337995677}
   - component: {fileID: 7521332932337995676}
+  - component: {fileID: 6445366323506921348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -292,6 +293,7 @@ MonoBehaviour:
   jumpForce: 70
   gravityScale: 10
   mainCamera: {fileID: 0}
+  levelOneSubmit: {fileID: 0}
   tutorialMovementEnabled: 1
   tutorialJumpEnabled: 1
   tutorialTimeTravelEnabled: 1
@@ -334,3 +336,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &6445366323506921348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521332932337995654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93ce39e2bb444ff8adbaee54e615432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0

@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionTarget: {fileID: 0}
   timeTransitionDuration: 3.5
+  timeTravelCost: 10

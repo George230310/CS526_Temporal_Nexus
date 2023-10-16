@@ -129,7 +129,10 @@ float dirX = Input.GetAxis("Horizontal");
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            levelOneSubmit.UpdateTravel();
+            if (levelOneSubmit)
+            {
+                levelOneSubmit.UpdateTravel();
+            }
             
             if (isPlayerInPresent)
             {

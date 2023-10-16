@@ -61,7 +61,8 @@ public class Tree : MultiStateObjectComponent
                 {
                     presentState = TreeState.GROWN;
                 }
-                if (presentState == TreeState.CUT || presentState == TreeState.DEAD)
+                
+                if (presentState == TreeState.CUT)
                 {
                     isInteractable = false;
                 }
@@ -69,6 +70,7 @@ public class Tree : MultiStateObjectComponent
                 {
                     isInteractable = true;
                 }
+                
                 break;
         }
 

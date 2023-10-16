@@ -80,9 +80,13 @@ public class GameManager : MonoBehaviour
         {
             EndGamePanel.SetActive(true);
         }
+
+        if (levelOneSubmit)
+        {
+            levelOneSubmit.UpdateTime(_elapsedTime);
+            levelOneSubmit.Send();
+        }
         
-        levelOneSubmit.UpdateTime(_elapsedTime);
-        levelOneSubmit.Send();
         Debug.Log(_elapsedTime);
     }
 

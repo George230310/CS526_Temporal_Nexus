@@ -9,7 +9,11 @@ public class EnemyStomp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("WeakPoint"))
         {
-            Destroy(other.gameObject);
+            HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
+            if (comp)
+            {
+                comp.TakeDamage(100f);
+            }
         }
     }
 }

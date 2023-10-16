@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d56c966378ac344a9b5583c0d85be17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
+  isInteractable: 1
   plantTreeCost: 10
   UnplantedTree: {fileID: 5375716239763683611}
   PlantedTree: {fileID: 5375716239025912099}
