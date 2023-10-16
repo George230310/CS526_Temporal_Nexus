@@ -27,6 +27,12 @@ public class PauseMenuController : MonoBehaviour
 
     public void Pause()
     {
+        // Something has already paused, skip.
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+        
         Time.timeScale = 0f;
         PauseMenuPanel.SetActive(true);
         IsPaused = true;
