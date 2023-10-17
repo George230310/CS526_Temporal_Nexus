@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     private Vector3 _shootDir;
     [SerializeField] private float speed = 30f;
     [SerializeField] private float lifeSpan = 3f;
+    [SerializeField] private float damage = 20f;
 
     private void Start()
     {
@@ -25,6 +26,13 @@ public class Bullet : MonoBehaviour
         // ignore self collision
         if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Pet"))
         {
+            // if other object has health component and it is not the player, deal damage
+            HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
+            if (comp)
+            {
+                comp.TakeDamage(damage);
+            }
+            
             Destroy(gameObject);
         }
     }

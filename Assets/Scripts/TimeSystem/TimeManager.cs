@@ -26,6 +26,7 @@ public class TimeManager : MonoBehaviour
     private bool _isTimeTransitionExecuting;
 
     [SerializeField] private float timeTransitionDuration;
+    [SerializeField] private float timeTravelCost;
 
     private void Awake()
     {
@@ -136,7 +137,7 @@ public class TimeManager : MonoBehaviour
         _isTimeTransitionExecuting = false;
     }
 
-    public void ChangeCurrentGlobalTimeState(TimeState newTimeState)
+    private void ChangeCurrentGlobalTimeState(TimeState newTimeState)
     {
         // if the new time state is different, change global time state and call on time state change on each multi-state objects
         if (newTimeState != CurrentGlobalTimeState)
@@ -146,6 +147,9 @@ public class TimeManager : MonoBehaviour
             {
                 multiState.OnTimeStateChange(CurrentGlobalTimeState);
             }
+            
+            // deduct player health
+            _player.GetComponent<HealthComponent>().TakeDamage(timeTravelCost);
         }
     }
 

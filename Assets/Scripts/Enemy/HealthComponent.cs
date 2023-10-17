@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public static int health;
+    public float maxHealth;
+    public float health;
 
     // Start is called before the first frame update
     void Start()
@@ -13,19 +13,27 @@ public class HealthComponent : MonoBehaviour
         health = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0f)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        // Need to add gameover overlay
-        Debug.Log("PlayerDead");
-        Destroy(gameObject);
+        // if the player died
+        if (gameObject.CompareTag("Player"))
+        {
+            // game over
+            GameManager.Instance.EndGame();
+        }
+        // if the enemy died
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

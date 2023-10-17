@@ -223,7 +223,7 @@ MonoBehaviour:
   - {fileID: 3472631469366936250}
   shootCoolDown: 0.5
   bulletPrefab: {fileID: 4695080813072973237, guid: 8446b416744c8f34f8d6fb569136dbe1, type: 3}
-  saveCost: 70
+  saveCost: 40
 --- !u!61 &3472631469791296191
 BoxCollider2D:
   m_ObjectHideFlags: 0

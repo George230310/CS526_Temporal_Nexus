@@ -15,8 +15,8 @@ public class Spike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("collided!");
-            gameManager.EndGame();
+            HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
+            comp.TakeDamage(100f);
         }
     }
 }
