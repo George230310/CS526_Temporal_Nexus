@@ -5244,7 +5244,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4961928988989919656, guid: 45072bd76b8794642889ceb26c601043, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4961928988989919656, guid: 45072bd76b8794642889ceb26c601043, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5606,7 +5606,7 @@ Transform:
   - {fileID: 885884284}
   - {fileID: 913486060}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685100739
 GameObject:
@@ -7964,6 +7964,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 907819615265404650, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_text
+      value: '''A'' and ''D'' to move
+
+        ''Spacebar'' to jump
+
+        ''E''
+        to interact
+
+        ''T'' to time travel'
+      objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042172, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_Name
       value: GameHUD
@@ -10338,7 +10349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1731111885554408059, guid: 3324b835525ebdd4597918795ea808db, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1731111885554408059, guid: 3324b835525ebdd4597918795ea808db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13281,7 +13292,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7849995943357923872, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7849995943357923872, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17367,7 +17378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2436324932823582354, guid: 59b9710686a9341d19fb3c283140314e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2436324932823582354, guid: 59b9710686a9341d19fb3c283140314e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17508,7 +17519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7521332932337995651, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7521332932337995651, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
       propertyPath: m_LocalPosition.x
