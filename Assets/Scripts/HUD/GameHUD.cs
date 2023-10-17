@@ -53,6 +53,7 @@ public class GameHUD : MonoBehaviour
         if (GameManager.Instance && GameManager.Instance.player)
         {
             GameManager.Instance.player.GetComponent<PlayerController>().enabled = false;
+            GameManager.Instance.player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         
         // setup option buttons
@@ -70,6 +71,7 @@ public class GameHUD : MonoBehaviour
         if (GameManager.Instance && GameManager.Instance.player)
         {
             GameManager.Instance.player.GetComponent<PlayerController>().enabled = false;
+            GameManager.Instance.player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         
         // setup option buttons
