@@ -12,7 +12,7 @@ public class HealthPickup : MonoBehaviour
         {
             HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
             comp.Heal(HealAmount);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
