@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MultiStateObjectComponent
 {
     private Vector3 _shootDir;
     [SerializeField] private float speed = 30f;
@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        TimeManager.Instance.AddMultiStateObject(this);
         Destroy(gameObject, lifeSpan);
     }
 
@@ -53,5 +54,18 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.position += _shootDir * (speed * Time.deltaTime);
+    }
+
+    public override void OnTimeStateChange(TimeState newTimeState)
+    {
+        if (newTimeState == TimeState.Past)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public override void OnInteract()
+    {
+        
     }
 }
