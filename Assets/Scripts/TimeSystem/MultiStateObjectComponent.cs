@@ -24,7 +24,7 @@ public abstract class MultiStateObjectComponent : MonoBehaviour
         // in case that this object is enemy, remove it from enemy tracker as well
         if (GameManager.Instance)
         {
-            EnemyMovement mov = gameObject.GetComponent<EnemyMovement>();
+            MultiStateEnemy mov = gameObject.GetComponent<MultiStateEnemy>();
             if (mov)
             {
                 GameManager.Instance.RemoveEnemyFromList(mov);

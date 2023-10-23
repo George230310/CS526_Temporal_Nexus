@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject closestEnemyInPetRange;
     public GameHUD gameHUD;
 
-    private List<EnemyMovement> _enemies;
+    private List<MultiStateEnemy> _enemies;
     public GameObject player;
 
     public LevelOne levelOneSubmit;
@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _enemies = FindObjectsOfType<EnemyMovement>(true).ToList();
+        _enemies = FindObjectsOfType<MultiStateEnemy>(true).ToList();
         player = GameObject.FindGameObjectWithTag("Player");
         gameHUD = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<GameHUD>();
     }
 
-    public void RemoveEnemyFromList(EnemyMovement enemy)
+    public void RemoveEnemyFromList(MultiStateEnemy enemy)
     {
         _enemies.Remove(enemy);
     }
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
         // find the closest enemy
         float minDist = float.MaxValue;
-        EnemyMovement closestComp = null;
+        MultiStateEnemy closestComp = null;
         foreach (var comp in _enemies)
         {
             float newDistance = Vector3.Distance(comp.gameObject.transform.position, player.transform.position);

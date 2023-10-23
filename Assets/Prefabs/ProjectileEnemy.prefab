@@ -102,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 2436324932733575431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 12, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2436324932823582354}
@@ -174,9 +174,8 @@ GameObject:
   - component: {fileID: 2306926082933486853}
   - component: {fileID: 3874792942834525413}
   - component: {fileID: 8976902636096517370}
-  - component: {fileID: 5327272965781143080}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: ProjectileEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9733577e3517489ca547b3a7c579b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteractable: 0
   fallSpeed: 5
   moveSpeed: 2
   moveDistance: 2
@@ -273,7 +273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 12, y: 6}
   m_EdgeRadius: 0
 --- !u!114 &8976902636096517370
 MonoBehaviour:
@@ -289,20 +289,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   collisionDelta: 1.8
---- !u!114 &5327272965781143080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436324932823582355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d0ea5fdf87d8b4f80b949e783eb5c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInteractable: 0
-  shouldBePetTarget: 0
 --- !u!1 &6240627825673522212
 GameObject:
   m_ObjectHideFlags: 0
