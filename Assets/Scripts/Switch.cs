@@ -44,7 +44,7 @@ public class Switch : MultiStateObjectComponent
                 // make switch color darker
                 if (_spriteRenderer)
                 {
-                    _spriteRenderer.color = Color.grey;
+                    _spriteRenderer.color = Color.yellow;
                 }
                 
                 break;

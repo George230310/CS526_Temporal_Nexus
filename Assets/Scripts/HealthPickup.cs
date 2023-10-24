@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    public float HealAmount = 20f;
+    public float HealAmount = 40f;
 
     void OnTriggerEnter2D(Collider2D other)
     {
