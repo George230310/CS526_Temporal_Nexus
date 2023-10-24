@@ -8,6 +8,8 @@ public class HealthPickup : MonoBehaviour
     public float HealAmount = 40f;
 
     public TextMeshPro HealAmountText;
+    
+    [SerializeField] private HealthPickupMultiStateObject myMultiStateObject;
 
     void Awake()
     {
@@ -20,6 +22,12 @@ public class HealthPickup : MonoBehaviour
         {
             HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
             comp.Heal(HealAmount);
+
+            if (myMultiStateObject)
+            {
+                myMultiStateObject.HealthPickup = null;
+            }
+            
             Destroy(gameObject);
         }
     }
