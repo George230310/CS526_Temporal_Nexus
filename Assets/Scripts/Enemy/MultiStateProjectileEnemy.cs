@@ -11,7 +11,8 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
 
     [SerializeField] private GameObject enemySprite;
     [SerializeField] private GameObject enemyEggSprite;
-    [SerializeField] private float shootCoolDown = 0.5f;
+    [SerializeField] private float shootCoolDown = 2.0f;
+    [SerializeField] private int shootCount = 5;
     private float _shootTimer;
 
     [SerializeField] private GameObject bulletPrefab;
@@ -35,15 +36,26 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
             if (_shootTimer >= shootCoolDown)
             {
                 _shootTimer = 0.0f;
-                
-                // fire
-                for (int fireAngle = fireAngleMin; fireAngle <= fireAngleMax; fireAngle += fireAngleOffset)
-                {
-                    Vector3 rotatedVector = Quaternion.AngleAxis(fireAngle, Vector3.forward) * Vector3.right;
-                    GameObject enemyBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                    enemyBullet.GetComponent<Bullet>().Setup(rotatedVector, false);
-                }
+
+                StartCoroutine(FireConsecutiveBullets());
             }
+        }
+    }
+
+    private IEnumerator FireConsecutiveBullets()
+    {
+        int count = 0;
+        while (count < shootCount)
+        {
+            for (int fireAngle = fireAngleMin; fireAngle <= fireAngleMax; fireAngle += fireAngleOffset)
+            {
+                Vector3 rotatedVector = Quaternion.AngleAxis(fireAngle, Vector3.forward) * Vector3.right;
+                GameObject enemyBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                enemyBullet.GetComponent<Bullet>().Setup(rotatedVector, false);
+            }
+            count++;
+            
+            yield return new WaitForSeconds(0.25f);
         }
     }
 
@@ -72,6 +84,7 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
 
                 _rigidbody.isKinematic = true;
                 _rigidbody.velocity = Vector2.zero;
+                StopAllCoroutines();
                 
                 break;
             
