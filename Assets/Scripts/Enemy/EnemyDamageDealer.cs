@@ -6,6 +6,18 @@ public class EnemyDamageDealer : MonoBehaviour
 {
     public int damage;
     [SerializeField] private float collisionDelta = 1.8f;
+    private bool _canBeStomped = true;
+    private bool _canDealDamage = true;
+
+    public void ToggleCanBeStomped(bool can)
+    {
+        _canBeStomped = can;
+    }
+    
+    public void ToggleCanDealDamage(bool can)
+    {
+        _canDealDamage = can;
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -18,7 +30,7 @@ public class EnemyDamageDealer : MonoBehaviour
             bool hitFromTop = (otherPosition.y - myPosition.y > collisionDelta);
             
             // if enemy gets hit from top, enemy is stomped
-            if (hitFromTop)
+            if (hitFromTop && _canBeStomped)
             {
                 HealthComponent myHealth = GetComponent<HealthComponent>();
                 if (myHealth)
@@ -27,7 +39,7 @@ public class EnemyDamageDealer : MonoBehaviour
                 }
             }
             // else deal damage to player
-            else
+            else if (_canDealDamage)
             {
                 HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
                 if (comp)

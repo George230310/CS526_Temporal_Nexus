@@ -33,7 +33,7 @@ public class Pet : MultiStateObjectComponent
                     shootDir.Normalize();
 
                     GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                    bullet.GetComponent<Bullet>().Setup(shootDir);
+                    bullet.GetComponent<Bullet>().Setup(shootDir, true);
                 }
             }
         }

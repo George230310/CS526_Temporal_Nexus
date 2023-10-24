@@ -157,4 +157,9 @@ public class TimeManager : MonoBehaviour
     {
         _multiStateObjectComponents.Remove(comp);
     }
+
+    public void AddMultiStateObject(MultiStateObjectComponent comp)
+    {
+        _multiStateObjectComponents.Add(comp);
+    }
 }
