@@ -305,8 +305,12 @@ MonoBehaviour:
   isInteractable: 0
   enemySprite: {fileID: 2436324932733575431}
   enemyEggSprite: {fileID: 2794791045740033536}
-  shootCoolDown: 0.8
+  shootCoolDown: 3.5
+  shootCount: 5
   bulletPrefab: {fileID: 4695080813072973237, guid: 8446b416744c8f34f8d6fb569136dbe1, type: 3}
+  fireAngleMin: 0
+  fireAngleMax: 180
+  fireAngleOffset: 30
 --- !u!1 &2794791045740033536
 GameObject:
   m_ObjectHideFlags: 0
