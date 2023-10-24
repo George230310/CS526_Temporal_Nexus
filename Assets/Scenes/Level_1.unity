@@ -19076,7 +19076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4691366181715580879, guid: dc7ae9e1478474f499fec93d86285483, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4691366181715580879, guid: dc7ae9e1478474f499fec93d86285483, type: 3}
       propertyPath: m_LocalScale.y
@@ -24681,7 +24681,7 @@ Transform:
   - {fileID: 1138745341}
   - {fileID: 610437441}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1986085718
 GameObject:
@@ -25141,6 +25141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealAmount: 40
   HealAmountText: {fileID: 1395537631}
+  myMultiStateObject: {fileID: 416584725}
 --- !u!1001 &2032265179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27477,7 +27478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042173, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042173, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_AnchorMax.x
