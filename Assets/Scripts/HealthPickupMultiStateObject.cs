@@ -20,10 +20,16 @@ public class HealthPickupMultiStateObject : MultiStateObjectComponent
         switch (newTimeState)
         {
             case TimeState.Present:
-                HealthPickup?.SetActive(true);
+                if (HealthPickup != null)
+                {
+                    HealthPickup?.SetActive(true);
+                }
                 break;
             case TimeState.Past:
-                HealthPickup?.SetActive(false);
+                if (HealthPickup != null)
+                {
+                    HealthPickup?.SetActive(false);
+                }
                 break;
         }
     }
