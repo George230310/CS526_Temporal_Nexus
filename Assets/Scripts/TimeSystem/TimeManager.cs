@@ -78,7 +78,7 @@ public class TimeManager : MonoBehaviour
         }
         
         // if the closest multi-state object is close enough, set it to be the player's interaction target
-        if (minDist < 3.0f)
+        if (minDist < 7.0f)
         {
             interactionTarget = closestComp;
             if (interactionTarget && interactionTarget.isInteractable)

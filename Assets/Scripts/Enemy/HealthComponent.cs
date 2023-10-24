@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,11 @@ public class HealthComponent : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Heal(float healAmount)
+    {
+        health = Mathf.Clamp(health + healAmount, 0f, maxHealth);
     }
 
     private void Die()
