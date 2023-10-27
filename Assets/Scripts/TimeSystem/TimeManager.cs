@@ -85,6 +85,11 @@ public class TimeManager : MonoBehaviour
             {
                _playerController.ToggleInteractionPrompt(true);
             }
+            else if (interactionTarget && !interactionTarget.isInteractable)
+            {
+                // The object was previously interactable but anymore.
+                _playerController.ToggleInteractionPrompt(false);
+            }
         }
         else
         {

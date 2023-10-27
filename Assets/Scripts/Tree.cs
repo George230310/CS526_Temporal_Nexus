@@ -127,12 +127,6 @@ public class Tree : MultiStateObjectComponent
                 GameManager.Instance.gameHUD.yesButton.onClick.AddListener(PlantTree);
                 GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(plantTreeCost);
             }
-
-            if (pastState == TreeState.PLANTED)
-            {
-                GameManager.Instance.gameHUD.optionDescription.text = "A plant has been planted here. It will take time to grow...";
-                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-            }
         }
 
         if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
