@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDamageDealer : MonoBehaviour
 {
-    public int damage;
+    private int damage = 50;
     [SerializeField] private float collisionDelta = 1.8f;
     private bool _canBeStomped = true;
     private bool _canDealDamage = true;
