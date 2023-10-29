@@ -132,9 +132,7 @@ public class Tree : MultiStateObjectComponent
         {
             if (pastState == TreeState.UNPLANTED)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "Wanna plant a tree here?";
-                GameManager.Instance.gameHUD.yesButton.onClick.AddListener(PlantTree);
-                GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(plantTreeCost);
+                PlantTree();
             }
         }
 
@@ -142,17 +140,7 @@ public class Tree : MultiStateObjectComponent
         {
             if (presentState == TreeState.GROWN)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "You chopped down this tree...";
-                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
                 CutDownTree();
-            }
-            else
-            {
-                if (GameManager.Instance)
-                {
-                    GameManager.Instance.gameHUD.optionDescription.text = "The land looks very fertile here. What if I plant something here in the past?";
-                    GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-                }
             }
         }
     }

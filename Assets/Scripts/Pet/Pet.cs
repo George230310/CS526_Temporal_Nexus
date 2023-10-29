@@ -102,24 +102,15 @@ public class Pet : MultiStateObjectComponent
         // if the pet is not saved, save the pet
         if (!_isSaved)
         {
-            if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
+            if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Past)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "This looks like skeleton of some animal that died a long time ago...";
-                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-            }
-            else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Past)
-            {
-                GameManager.Instance.gameHUD.optionDescription.text = "This small injured Slime is looking at you and want to be helped...";
-                GameManager.Instance.gameHUD.yesButton.onClick.AddListener(SavePet);
-                GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(saveCost);
+                SavePet();
             }
         }
         // else if the pet is saved and the time is at present
         else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
         {
-            GameManager.Instance.gameHUD.optionDescription.text = "The Slime you saved has grown bigger. It recognizes you and want to follow you.";
-            GameManager.Instance.gameHUD.yesButton.onClick.AddListener(AttachPetToPlayer);
-            GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(0.0f);
+            AttachPetToPlayer();
         }
     }
 
@@ -129,9 +120,12 @@ public class Pet : MultiStateObjectComponent
         GameObject player = GameManager.Instance.player;
         Transform attachmentPointTransform = player.transform.Find("PetAttachmentPoint");
 
-        gameObject.transform.position = attachmentPointTransform.position;
-        gameObject.transform.SetParent(attachmentPointTransform);
-        _isAttachedToPlayer = true;
-        isInteractable = false;
+        if (attachmentPointTransform)
+        {
+            gameObject.transform.position = attachmentPointTransform.position;
+            gameObject.transform.SetParent(attachmentPointTransform);
+            _isAttachedToPlayer = true;
+            isInteractable = false;
+        }
     }
 }

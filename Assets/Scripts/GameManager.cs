@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public LevelOne levelOneSubmit;
     private float _elapsedTime;
 
+    [SerializeField] private float petRange;
+
     private void Awake()
     {
         // singleton pattern
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        if (minDist < 30.0f && closestComp)
+        if (minDist < petRange && closestComp)
         {
             closestEnemyInPetRange = closestComp.gameObject;
         }
