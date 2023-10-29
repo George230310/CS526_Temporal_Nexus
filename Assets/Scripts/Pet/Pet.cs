@@ -25,8 +25,8 @@ public class Pet : MultiStateObjectComponent
             {
                 _shootTimer = 0.0f;
                 
-                // if there is a target to shoot
-                if (GameManager.Instance.closestEnemyInPetRange)
+                // if there is a target to shoot and the target is present.
+                if (GameManager.Instance.closestEnemyInPetRange && GameManager.Instance.closestEnemyInPetRange.activeSelf)
                 {
                     // fire projectile
                     Vector3 shootDir = GameManager.Instance.closestEnemyInPetRange.transform.position - gameObject.transform.position;
