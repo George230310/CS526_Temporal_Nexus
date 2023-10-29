@@ -6775,7 +6775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVerticalMove: 1
-  moveOffset: -15
+  moveOffset: -20
   moveDuration: 1
 --- !u!4 &666249194
 Transform:
