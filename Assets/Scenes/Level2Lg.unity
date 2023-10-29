@@ -22869,14 +22869,14 @@ PrefabInstance:
     - target: {fileID: 8456070741743183710, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1336545050}
     - target: {fileID: 8456070741743183710, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reset
+      value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 8456070741743183710, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: PauseMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042172, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_Name
@@ -25860,6 +25860,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &1336545050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+  m_PrefabInstance: {fileID: 868380150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bc897ae91f2374b96545dd4961d22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336719026
 GameObject:
   m_ObjectHideFlags: 0
