@@ -8,7 +8,8 @@ using UnityEngine.Serialization;
 public class Tree : MultiStateObjectComponent
 {
     [SerializeField] private float plantTreeCost;
-
+    [SerializeField] private bool planted;
+    
     private enum TreeState
     {
         UNPLANTED,
@@ -35,8 +36,16 @@ public class Tree : MultiStateObjectComponent
 
     private void Start()
     {
-        pastState = TreeState.UNPLANTED;
-        presentState = TreeState.DEAD;
+        if (!planted)
+        {
+            pastState = TreeState.UNPLANTED;
+            presentState = TreeState.DEAD;
+        }
+        else
+        {
+            pastState = TreeState.PLANTED;
+            presentState = TreeState.GROWN;
+        }
 
         SetCorrectTree();
     }
