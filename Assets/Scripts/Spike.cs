@@ -19,13 +19,15 @@ public class Spike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Vector3 otherPosition = other.gameObject.transform.position;
+            
             HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
             comp.TakeDamage(20f);
 
             // Call the ShakePlayer method to make the player vibrate.
             StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
             
-            StartCoroutine(Post(12.ToString(), 55.ToString()));
+            StartCoroutine(Post(otherPosition.x.ToString(), otherPosition.y.ToString()));
         }
     }
 
@@ -68,7 +70,7 @@ public class Spike : MonoBehaviour
             }
             else
             {
-                Debug.Log("Form upload complete!");
+                Debug.Log(xCoord + ", "+ yCoord);
             }
         }
     }
