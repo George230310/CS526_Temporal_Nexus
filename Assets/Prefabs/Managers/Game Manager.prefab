@@ -48,7 +48,10 @@ MonoBehaviour:
   EndGamePanel: {fileID: 0}
   WinGamePanel: {fileID: 0}
   closestEnemyInPetRange: {fileID: 0}
-  _gameHUD: {fileID: 0}
+  gameHUD: {fileID: 0}
+  player: {fileID: 0}
+  levelOneSubmit: {fileID: 0}
+  petRange: 50
 --- !u!1 &4583040790364920770
 GameObject:
   m_ObjectHideFlags: 0

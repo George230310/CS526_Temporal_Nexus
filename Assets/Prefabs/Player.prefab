@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 30
-  jumpForce: 70
-  gravityScale: 10
+  jumpForce: 65
+  gravityScale: 9.8
   mainCamera: {fileID: 0}
   levelOneSubmit: {fileID: 0}
   tutorialMovementEnabled: 1
