@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Spike : MonoBehaviour
 {
+    // The URL is needed to hook up the Google Form.
+    private string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScBybnWt0wfTAXkPIyFkR9-fGEl_ef8ySyGkkv_0SrIbmT31g/formResponse";
+    
     private GameManager gameManager;
     
     void Awake()
@@ -20,6 +24,8 @@ public class Spike : MonoBehaviour
 
             // Call the ShakePlayer method to make the player vibrate.
             StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
+            
+            StartCoroutine(Post(12.ToString(), 55.ToString()));
         }
     }
 
@@ -42,5 +48,28 @@ public class Spike : MonoBehaviour
 
         // Reset the player's position.
         playerTransform.position = originalPosition;
+    }
+    
+    private IEnumerator Post(string xCoord, string yCoord)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm();
+        form.AddField("entry.960131089", xCoord);
+        form.AddField("entry.2122016655", yCoord);
+        
+        // Send responses and verify result
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Form upload complete!");
+            }
+        }
     }
 }

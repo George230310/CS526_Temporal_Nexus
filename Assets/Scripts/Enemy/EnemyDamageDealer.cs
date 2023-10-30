@@ -47,7 +47,6 @@ public class EnemyDamageDealer : MonoBehaviour
                     comp.TakeDamage(damage);
                 }
             }
-            
         }
     }
 }
