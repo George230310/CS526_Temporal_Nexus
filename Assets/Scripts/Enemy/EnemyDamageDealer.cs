@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class EnemyDamageDealer : MonoBehaviour
 {
+    // The URL is needed to hook up the Google Form.
+    private string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScBybnWt0wfTAXkPIyFkR9-fGEl_ef8ySyGkkv_0SrIbmT31g/formResponse";
+    
     private int damage = 50;
     [SerializeField] private float collisionDelta = 1.8f;
     private bool _canBeStomped = true;
@@ -45,7 +49,31 @@ public class EnemyDamageDealer : MonoBehaviour
                 if (comp)
                 {
                     comp.TakeDamage(damage);
+                    StartCoroutine(Post(otherPosition.x.ToString(), otherPosition.y.ToString()));
                 }
+            }
+        }
+    }
+    
+    private IEnumerator Post(string xCoord, string yCoord)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm();
+        form.AddField("entry.960131089", xCoord);
+        form.AddField("entry.2122016655", yCoord);
+        
+        // Send responses and verify result
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(xCoord + ", "+ yCoord);
             }
         }
     }
