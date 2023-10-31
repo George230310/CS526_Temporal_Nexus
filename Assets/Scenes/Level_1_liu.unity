@@ -8235,6 +8235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform Horizontal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4262888706479321141, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
 --- !u!1 &263891693
@@ -24218,6 +24222,10 @@ PrefabInstance:
     - target: {fileID: 2571508108069653015, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
       propertyPath: m_Name
       value: Moving Platform Horizontal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262888706479321141, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
@@ -46536,8 +46544,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform Horizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 4262888706479321141, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+      propertyPath: m_Size.x
+      value: 2.7826316
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262888706479321141, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0413157
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+--- !u!1 &1388243573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2571508108069653015, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+  m_PrefabInstance: {fileID: 1388243572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1388243574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388243573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78a16afe8b206a4bb8c278646d74010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1389585907
 GameObject:
   m_ObjectHideFlags: 0
@@ -52161,6 +52194,10 @@ PrefabInstance:
     - target: {fileID: 2571508108069653015, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
       propertyPath: m_Name
       value: Moving Platform Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262888706479321141, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8800f93a5b6741fe83a4ecab35f962c, type: 3}
