@@ -11,6 +11,7 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textPrompt;
     [SerializeField] private Image blackOverlay;
     [SerializeField] private RectTransform optionPanel;
+    [SerializeField] private GameObject timeTravelHint;
 
     public TextMeshProUGUI optionDescription;
     public TextMeshProUGUI yesButtonText;
@@ -114,5 +115,14 @@ public class GameHUD : MonoBehaviour
     private void DeductPlayerHealth()
     {
         GameManager.Instance.player.GetComponent<HealthComponent>().TakeDamage(_yesButtonCost);
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance && GameManager.Instance.player)
+        {
+            PlayerController controller = GameManager.Instance.player.GetComponent<PlayerController>();
+            timeTravelHint.SetActive(controller.tutorialTimeTravelEnabled);
+        }
     }
 }

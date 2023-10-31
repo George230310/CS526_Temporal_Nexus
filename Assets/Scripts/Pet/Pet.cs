@@ -24,9 +24,9 @@ public class Pet : MultiStateObjectComponent
             if (_shootTimer >= shootCoolDown)
             {
                 _shootTimer = 0.0f;
-                
-                // if there is a target to shoot
-                if (GameManager.Instance.closestEnemyInPetRange)
+
+                // if there is a target to shoot and the target is present.
+                if (GameManager.Instance.closestEnemyInPetRange && GameManager.Instance.closestEnemyInPetRange.activeSelf)
                 {
                     // fire projectile
                     Vector3 shootDir = GameManager.Instance.closestEnemyInPetRange.transform.position - gameObject.transform.position;
@@ -44,6 +44,11 @@ public class Pet : MultiStateObjectComponent
         if (_canBeSaved)
         {
             _isSaved = true;
+            // Do not interact with the saved pet in the past.
+            if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Past)
+            {
+                isInteractable = false;
+            }
         }
     }
 
@@ -54,18 +59,29 @@ public class Pet : MultiStateObjectComponent
             case TimeState.Past:
                 _canBeSaved = true;
                 SetPetSprite(1);
-                
+
                 break;
-            
+
             case TimeState.Present:
                 _canBeSaved = false;
+
+                // The pet is not interactable only if attached to the player.
+                if (_isAttachedToPlayer)
+                {
+                    isInteractable = false;
+                }
+                else
+                {
+                    isInteractable = true;
+                }
+
                 // set the sprite for the pet based on conditions
                 SetPetSprite(_isSaved ? 2 : 0);
 
                 break;
         }
     }
-    
+
     // function to set the sprite of this pet
     private void SetPetSprite(int idx)
     {
@@ -74,7 +90,7 @@ public class Pet : MultiStateObjectComponent
         {
             return;
         }
-        
+
         for (int i = 0; i < sprites.Length; i++)
         {
             sprites[i].SetActive(i == idx);
@@ -86,24 +102,15 @@ public class Pet : MultiStateObjectComponent
         // if the pet is not saved, save the pet
         if (!_isSaved)
         {
-            if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
+            if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Past)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "This looks like skeleton of some animal that died a long time ago...";
-                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-            }
-            else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Past)
-            {
-                GameManager.Instance.gameHUD.optionDescription.text = "This small injured Slime is looking at you and want to be helped...";
-                GameManager.Instance.gameHUD.yesButton.onClick.AddListener(SavePet);
-                GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(saveCost);
+                SavePet();
             }
         }
         // else if the pet is saved and the time is at present
         else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
         {
-            GameManager.Instance.gameHUD.optionDescription.text = "The Slime you saved has grown bigger. It recognizes you and want to follow you.";
-            GameManager.Instance.gameHUD.yesButton.onClick.AddListener(AttachPetToPlayer);
-            GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(0.0f);
+            AttachPetToPlayer();
         }
     }
 
@@ -113,8 +120,12 @@ public class Pet : MultiStateObjectComponent
         GameObject player = GameManager.Instance.player;
         Transform attachmentPointTransform = player.transform.Find("PetAttachmentPoint");
 
-        gameObject.transform.position = attachmentPointTransform.position;
-        gameObject.transform.SetParent(attachmentPointTransform);
-        _isAttachedToPlayer = true;
+        if (attachmentPointTransform)
+        {
+            gameObject.transform.position = attachmentPointTransform.position;
+            gameObject.transform.SetParent(attachmentPointTransform);
+            _isAttachedToPlayer = true;
+            isInteractable = false;
+        }
     }
 }

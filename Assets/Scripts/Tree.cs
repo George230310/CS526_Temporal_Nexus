@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class Tree : MultiStateObjectComponent
 {
     [SerializeField] private float plantTreeCost;
+    [SerializeField] private bool planted;
     
     private enum TreeState
     {
@@ -35,8 +36,16 @@ public class Tree : MultiStateObjectComponent
 
     private void Start()
     {
-        pastState = TreeState.UNPLANTED;
-        presentState = TreeState.DEAD;
+        if (!planted)
+        {
+            pastState = TreeState.UNPLANTED;
+            presentState = TreeState.DEAD;
+        }
+        else
+        {
+            pastState = TreeState.PLANTED;
+            presentState = TreeState.GROWN;
+        }
 
         SetCorrectTree();
     }
@@ -48,7 +57,7 @@ public class Tree : MultiStateObjectComponent
             case TimeState.Past:
                 if (pastState == TreeState.PLANTED)
                 {
-                    isInteractable = false;
+                    isInteractable = true;
                 }
                 else
                 {
@@ -61,7 +70,7 @@ public class Tree : MultiStateObjectComponent
                 {
                     presentState = TreeState.GROWN;
                 }
-                
+
                 if (presentState == TreeState.CUT)
                 {
                     isInteractable = false;
@@ -70,7 +79,7 @@ public class Tree : MultiStateObjectComponent
                 {
                     isInteractable = true;
                 }
-                
+
                 break;
         }
 
@@ -123,9 +132,7 @@ public class Tree : MultiStateObjectComponent
         {
             if (pastState == TreeState.UNPLANTED)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "Wanna plant a tree here?";
-                GameManager.Instance.gameHUD.yesButton.onClick.AddListener(PlantTree);
-                GameManager.Instance.gameHUD.PresentInteractionMessageAndOptions(plantTreeCost);
+                PlantTree();
             }
         }
 
@@ -133,17 +140,7 @@ public class Tree : MultiStateObjectComponent
         {
             if (presentState == TreeState.GROWN)
             {
-                GameManager.Instance.gameHUD.optionDescription.text = "You chopped down this tree...";
-                GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
                 CutDownTree();
-            }
-            else
-            {
-                if (GameManager.Instance)
-                {
-                    GameManager.Instance.gameHUD.optionDescription.text = "The land looks very fertile here. What if I plant something here in the past?";
-                    GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-                }
             }
         }
     }

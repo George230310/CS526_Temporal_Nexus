@@ -55,18 +55,10 @@ public class Switch : MultiStateObjectComponent
     {
         if (_isSwitchEnabled)
         {
-            GameManager.Instance.gameHUD.optionDescription.text = "You moved the switch";
-            GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
-            
             foreach (var e in movableBlockEvents)
             {
                 e.Invoke();
             }
-        }
-        else
-        {
-            GameManager.Instance.gameHUD.optionDescription.text = "The switch is too rusty to move now. maybe it worked a long time ago...";
-            GameManager.Instance.gameHUD.PresentInteractionMessageOnly();
         }
     }
 }

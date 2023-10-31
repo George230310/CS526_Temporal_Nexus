@@ -26,7 +26,6 @@ public class TimeManager : MonoBehaviour
     private bool _isTimeTransitionExecuting;
 
     [SerializeField] private float timeTransitionDuration;
-    [SerializeField] private float timeTravelCost;
 
     private void Awake()
     {
@@ -85,6 +84,11 @@ public class TimeManager : MonoBehaviour
             {
                _playerController.ToggleInteractionPrompt(true);
             }
+            else if (interactionTarget && !interactionTarget.isInteractable)
+            {
+                // The object was previously interactable but anymore.
+                _playerController.ToggleInteractionPrompt(false);
+            }
         }
         else
         {
@@ -110,30 +114,13 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator ExecuteTimeTransition(TimeState newTimeState)
     {
-        yield return new WaitForSeconds(0.2f);
-        
-        if (newTimeState == TimeState.Past)
-        {
-            _gameHUD.SetTextPrompt("50 years ago, same location...");
-        }
-        else if (newTimeState == TimeState.Present)
-        {
-            _gameHUD.SetTextPrompt("Back to the present...");
-        }
+        yield return new WaitForSeconds(0.1f);
 
-        _gameHUD.ToggleBlackOverlay(true);
-        float half = timeTransitionDuration / 2.0f;
-        
-        _gameHUD.FadeBlackOverlay(timeTransitionDuration);
-        yield return new WaitForSeconds(half);
         
         ChangeCurrentGlobalTimeState(newTimeState);
         
-        yield return new WaitForSeconds(half);
         
-        _gameHUD.ToggleBlackOverlay(false);
-        
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         _isTimeTransitionExecuting = false;
     }
 
@@ -147,9 +134,6 @@ public class TimeManager : MonoBehaviour
             {
                 multiState.OnTimeStateChange(CurrentGlobalTimeState);
             }
-            
-            // deduct player health
-            _player.GetComponent<HealthComponent>().TakeDamage(timeTravelCost);
         }
     }
 
