@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
     // The URL is needed to hook up the Google Form.
-    private string URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScBybnWt0wfTAXkPIyFkR9-fGEl_ef8ySyGkkv_0SrIbmT31g/formResponse";
+    private string URL;
     
     private GameManager gameManager;
     
@@ -26,8 +27,14 @@ public class Spike : MonoBehaviour
 
             // Call the ShakePlayer method to make the player vibrate.
             StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
-            
-            StartCoroutine(Post(otherPosition.x.ToString(), otherPosition.y.ToString()));
+            if (SceneManager.GetActiveScene().name == "Level_1_liu")
+            {
+                StartCoroutine(Post(1, otherPosition.x.ToString(), otherPosition.y.ToString()));
+            }
+            else if (SceneManager.GetActiveScene().name == "Level2Lg")
+            {
+                StartCoroutine(Post(2, otherPosition.x.ToString(), otherPosition.y.ToString()));
+            }
         }
     }
 
@@ -52,12 +59,22 @@ public class Spike : MonoBehaviour
         playerTransform.position = originalPosition;
     }
     
-    private IEnumerator Post(string xCoord, string yCoord)
+    private IEnumerator Post(int level, string xCoord, string yCoord)
     {
-        // Create the form and enter responses
         WWWForm form = new WWWForm();
-        form.AddField("entry.960131089", xCoord);
-        form.AddField("entry.2122016655", yCoord);
+        
+        if (level == 1)
+        {
+            URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScBybnWt0wfTAXkPIyFkR9-fGEl_ef8ySyGkkv_0SrIbmT31g/formResponse";
+            form.AddField("entry.960131089", xCoord);
+            form.AddField("entry.2122016655", yCoord);
+        }
+        else if (level == 2)
+        {
+            URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSeoPDLoM-BSJToqyU-03vc3rFrDbq_Bbo5cWCEOF_lyGdpu-g/formResponse";
+            form.AddField("entry.738521626", xCoord);
+            form.AddField("entry.109999113", yCoord);
+        }
         
         // Send responses and verify result
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
@@ -70,7 +87,7 @@ public class Spike : MonoBehaviour
             }
             else
             {
-                Debug.Log(xCoord + ", "+ yCoord);
+                Debug.Log("Level" + level + ": " + xCoord + ", "+ yCoord);
             }
         }
     }
