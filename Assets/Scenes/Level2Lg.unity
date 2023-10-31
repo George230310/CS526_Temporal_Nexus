@@ -18001,7 +18001,7 @@ PrefabInstance:
     - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
       propertyPath: PauseMenuPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1163872838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
 --- !u!4 &868380151 stripped
@@ -23591,6 +23591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+--- !u!1 &1163872838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 907819615475198369, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+  m_PrefabInstance: {fileID: 1163872837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1165616187
 GameObject:
   m_ObjectHideFlags: 0
