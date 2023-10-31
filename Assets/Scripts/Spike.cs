@@ -28,7 +28,7 @@ public class Spike : MonoBehaviour
             canTakeDamage = false; // Disable damage temporarily.
             StartCoroutine(EnableDamageAfterCooldown());
 
-            StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
+            //StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
         }
     }
 
