@@ -65,7 +65,6 @@ public class LevelOne : MonoBehaviour
             }
             else
             {
-                
                 Debug.Log("Form upload complete!");
             }
         }

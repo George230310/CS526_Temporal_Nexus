@@ -2670,6 +2670,10 @@ PrefabInstance:
       propertyPath: levelOneSubmit
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3738306589150144276, guid: 9e7decf688f47ca4db195926d26ed6d4, type: 3}
+      propertyPath: levelAnalyticsSubmit
+      value: 
+      objectReference: {fileID: 2103719830}
     - target: {fileID: 3738306589150144277, guid: 9e7decf688f47ca4db195926d26ed6d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -39836,6 +39840,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1669744181}
     - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
+      propertyPath: LevelAnalytics
+      value: 
+      objectReference: {fileID: 2103719830}
+    - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
       propertyPath: levelOneSubmit
       value: 
       objectReference: {fileID: 0}
@@ -45318,6 +45326,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2103719829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103719831}
+  - component: {fileID: 2103719830}
+  m_Layer: 0
+  m_Name: Level2Analytics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2103719830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103719829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42fa1373067a49c8a888f216121e187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2103719831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103719829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -205.87216, y: 2.8558717, z: -0.3475631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2113221669
 GameObject:
   m_ObjectHideFlags: 0
