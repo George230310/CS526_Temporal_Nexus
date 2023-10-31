@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -10,13 +11,33 @@ public class Spike : MonoBehaviour
     private string URL;
     
     private GameManager gameManager;
-    
+    private bool canTakeDamage = true;
+    private float damageCooldown = 0.5f; // Adjust the cooldown duration as needed.
+    private float damageRate = 2f;     // Adjust the rate of damage as needed.
+    private HealthComponent playerHealth;
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
+    {
+        if (canTakeDamage && other.gameObject.CompareTag("Player"))
+        {
+            playerHealth = other.gameObject.GetComponent<HealthComponent>();
+
+            HealthComponent comp = playerHealth;
+            comp.TakeDamage(10f);
+
+            canTakeDamage = false; // Disable damage temporarily.
+            StartCoroutine(EnableDamageAfterCooldown());
+
+            //StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -35,10 +56,26 @@ public class Spike : MonoBehaviour
             {
                 StartCoroutine(Post(2, otherPosition.x.ToString(), otherPosition.y.ToString()));
             }
+            playerHealth = null; // Player is no longer in the spike area.
         }
     }
 
-    // Coroutine to shake the player.
+    IEnumerator EnableDamageAfterCooldown()
+    {
+        yield return new WaitForSeconds(damageCooldown);
+        canTakeDamage = true; // Enable damage after the cooldown.
+    }
+
+    IEnumerator DamageOverTime()
+    {
+        while (playerHealth != null)
+        {
+            playerHealth.TakeDamage(5f); // Adjust the damage per 2 seconds as needed.
+            yield return new WaitForSeconds(2f); // Damage rate is every 2 seconds.
+        }
+    }
+
+    [CanBeNull]
     IEnumerator ShakePlayer(Transform playerTransform, float duration, float magnitudeX, float magnitudeY)
     {
         Vector3 originalPosition = playerTransform.position;
@@ -55,7 +92,6 @@ public class Spike : MonoBehaviour
             yield return null;
         }
 
-        // Reset the player's position.
         playerTransform.position = originalPosition;
     }
     
