@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 2.0f;
     public Camera mainCamera;
     
-    public LevelOne levelOneSubmit;
+    public LevelAnalyticsCollect LevelAnalytics;
     // Tutorial flags
 
     public bool tutorialMovementEnabled = true;
@@ -129,9 +129,9 @@ float dirX = Input.GetAxis("Horizontal");
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            if (levelOneSubmit)
+            if (LevelAnalytics)
             {
-                levelOneSubmit.UpdateTravel();
+                LevelAnalytics.UpdateTravel();
             }
             
             if (isPlayerInPresent)

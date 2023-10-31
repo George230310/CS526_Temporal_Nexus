@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private List<MultiStateEnemy> _enemies;
     public GameObject player;
 
-    public LevelOne levelOneSubmit;
+    public LevelAnalyticsCollect levelAnalyticsSubmit;
     private float _elapsedTime;
 
     [SerializeField] private float petRange;
@@ -83,10 +83,10 @@ public class GameManager : MonoBehaviour
             EndGamePanel.SetActive(true);
         }
 
-        if (levelOneSubmit)
+        if (levelAnalyticsSubmit)
         {
-            levelOneSubmit.UpdateTime(_elapsedTime);
-            levelOneSubmit.Send();
+            levelAnalyticsSubmit.UpdateTime(_elapsedTime);
+            levelAnalyticsSubmit.Send();
         }
         
         Debug.Log(_elapsedTime);
@@ -101,11 +101,11 @@ public class GameManager : MonoBehaviour
             WinGamePanel.SetActive(true);
         }
 
-        if (levelOneSubmit)
+        if (levelAnalyticsSubmit)
         {
-            levelOneSubmit.UpdateTime(_elapsedTime);
-            levelOneSubmit.UpdateComplete();
-            levelOneSubmit.Send();
+            levelAnalyticsSubmit.UpdateTime(_elapsedTime);
+            levelAnalyticsSubmit.UpdateComplete();
+            levelAnalyticsSubmit.Send();
         }
 
         Debug.Log(_elapsedTime);
