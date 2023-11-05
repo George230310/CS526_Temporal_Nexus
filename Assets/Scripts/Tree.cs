@@ -57,7 +57,7 @@ public class Tree : MultiStateObjectComponent
             case TimeState.Past:
                 if (pastState == TreeState.PLANTED)
                 {
-                    isInteractable = true;
+                    isInteractable = false;
                 }
                 else
                 {
