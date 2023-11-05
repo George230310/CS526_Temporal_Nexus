@@ -17,7 +17,8 @@ public class MovableBlock : MonoBehaviour
     [SerializeField] private float moveOffset;
     [SerializeField] private float moveDuration;
 
-    private void Start()
+    // function to be invoked when switch is toggled
+    public void MoveBlock()
     {
         _startPosition = transform.position;
         if (isVerticalMove)
@@ -28,11 +29,7 @@ public class MovableBlock : MonoBehaviour
         {
             _endPosition = _startPosition + Vector3.right * moveOffset;
         }
-    }
-
-    // function to be invoked when switch is toggled
-    public void MoveBlock()
-    {
+        
         if (_isMovedAway)
         {
             MoveBack();
