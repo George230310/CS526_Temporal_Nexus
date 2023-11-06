@@ -12,15 +12,27 @@ public class MovableBlock : MonoBehaviour
     
     // is this block supposed to move vertically?
     [SerializeField] private bool isVerticalMove;
+
+    // The starting position must be calculated dynamically if the parent block moves.
+    [SerializeField] private bool isPartOfMovingPlatform = false;
     
     // how much to move
     [SerializeField] private float moveOffset;
     [SerializeField] private float moveDuration;
 
+    void Awake()
+    {
+        _startPosition = transform.position;
+    }
+
     // function to be invoked when switch is toggled
     public void MoveBlock()
     {
-        _startPosition = transform.position;
+        if (isPartOfMovingPlatform)
+        {
+            _startPosition = transform.position;
+        }
+
         if (isVerticalMove)
         {
             _endPosition = _startPosition + Vector3.up * moveOffset;
