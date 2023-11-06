@@ -33,8 +33,7 @@ public class Tree : MultiStateObjectComponent
 
     public GameObject DeadTree;
 
-
-    private void Start()
+    private void Awake()
     {
         if (!planted)
         {
@@ -46,7 +45,11 @@ public class Tree : MultiStateObjectComponent
             pastState = TreeState.PLANTED;
             presentState = TreeState.GROWN;
         }
+    }
 
+
+    private void Start()
+    {
         SetCorrectTree();
     }
 
@@ -66,17 +69,12 @@ public class Tree : MultiStateObjectComponent
                 break;
 
             case TimeState.Present:
+                
+                isInteractable = false;
+                
                 if (presentState != TreeState.CUT && pastState == TreeState.PLANTED)
                 {
                     presentState = TreeState.GROWN;
-                }
-
-                if (presentState == TreeState.CUT)
-                {
-                    isInteractable = false;
-                }
-                else
-                {
                     isInteractable = true;
                 }
 
