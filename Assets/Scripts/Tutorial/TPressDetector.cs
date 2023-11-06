@@ -56,7 +56,11 @@ public class TPressDetector : MonoBehaviour
         plantTreeIndicator.DOFade(0.0f, 0.5f);
         
         // wait for sometime
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
+        
+        plantTreeIndicator.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
         
         // prompt pressing T again
         EnableTPrompt();
