@@ -2982,7 +2982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99438125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21043,11 +21043,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472631469791296176, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.49001
+      value: 109.7
       objectReference: {fileID: 0}
     - target: {fileID: 3472631469791296176, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5600023
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 3472631469791296176, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25661,7 +25661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612465429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 186.3, y: 56.7, z: 0}
+  m_LocalPosition: {x: 186.3, y: 51.7, z: 0}
   m_LocalScale: {x: 1.7660936, y: 2.0125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52458,8 +52458,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271170396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.020004, y: -7.879999, z: -3.4577463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: -7.879999, z: -3.4577463}
+  m_LocalScale: {x: 1, y: 0.7046875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 612465430}
@@ -52478,7 +52478,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12428045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -52489,7 +52489,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.5, y: 9.1}
+  m_Size: {x: 7.5, y: 8.851439}
   m_EdgeRadius: 0
 --- !u!212 &1271170399
 SpriteRenderer:
@@ -85755,7 +85755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
-  moveDuration: 2
+  moveDuration: 3.5
   moveOffset: -50
 --- !u!1 &2077692029
 GameObject:
