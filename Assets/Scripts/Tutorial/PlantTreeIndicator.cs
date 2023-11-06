@@ -19,7 +19,7 @@ public class PlantTreeIndicator : MultiStateObjectComponent
         {
             case TimeState.Past:
 
-                if (gameObject.activeSelf)
+                if (gameObject.activeSelf && _sprite)
                 {
                     _sprite.DOFade(1.0f, 0.5f);
                 }
@@ -28,7 +28,7 @@ public class PlantTreeIndicator : MultiStateObjectComponent
             
             case TimeState.Present:
 
-                if (gameObject.activeSelf)
+                if (gameObject.activeSelf && _sprite)
                 {
                     _sprite.DOFade(0.0f, 0.5f);
                 }
