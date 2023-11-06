@@ -21085,6 +21085,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pet
       objectReference: {fileID: 0}
+    - target: {fileID: 3472631470047909026, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472631470047909026, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472631470047909026, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472631470047909027, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1ba720e915f7242a9add23e35af01b, type: 3}
 --- !u!1001 &519242929
