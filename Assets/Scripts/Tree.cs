@@ -158,5 +158,10 @@ public class Tree : MultiStateObjectComponent
         isInteractable = false;
         SetCorrectTree();
     }
+
+    public bool IsPlanted()
+    {
+        return planted;
+    }
 }
 
