@@ -28,7 +28,7 @@ public class MovableBlock : MonoBehaviour
     // function to be invoked when switch is toggled
     public void MoveBlock()
     {
-        if (isPartOfMovingPlatform)
+        if (isPartOfMovingPlatform &&!_isMovedAway)
         {
             _startPosition = transform.position;
         }
@@ -36,10 +36,18 @@ public class MovableBlock : MonoBehaviour
         if (isVerticalMove)
         {
             _endPosition = _startPosition + Vector3.up * moveOffset;
+            if (isPartOfMovingPlatform && _isMovedAway)
+            {
+                _endPosition = _startPosition - Vector3.up * moveOffset;
+            }
         }
         else
         {
             _endPosition = _startPosition + Vector3.right * moveOffset;
+            if (isPartOfMovingPlatform && _isMovedAway)
+            {
+                _endPosition = _startPosition - Vector3.right * moveOffset;
+            }
         }
         
         if (_isMovedAway)
