@@ -29,6 +29,7 @@ public class Switch : MultiStateObjectComponent
         {
             case TimeState.Past:
                 _isSwitchEnabled = true;
+                isInteractable = true;
                 
                 // make switch color brighter
                 if (_spriteRenderer)
@@ -40,6 +41,7 @@ public class Switch : MultiStateObjectComponent
             
             case TimeState.Present:
                 _isSwitchEnabled = false;
+                isInteractable = false;
                 
                 // make switch color darker
                 if (_spriteRenderer)
