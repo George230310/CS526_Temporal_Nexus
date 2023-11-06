@@ -161,7 +161,7 @@ public class Tree : MultiStateObjectComponent
 
     public bool IsPlanted()
     {
-        return planted;
+        return pastState == TreeState.PLANTED;
     }
 }
 

@@ -35,12 +35,31 @@ public class TPressDetector : MonoBehaviour
             _isDetecting = false;
             tPrompt.SetActive(false);
             plantTreeIndicator.DOFade(1.0f, 0.5f);
+            StartCoroutine(SpoonFeedTimeTravel());
         }
         else if (_tPressCount == 2)
         {
             _isDetecting = false;
             tPrompt.SetActive(false);
         }
+    }
+    
+    private IEnumerator SpoonFeedTimeTravel()
+    {
+        // wait for tree to be planted
+        while (!treeToPlant.IsPlanted())
+        {
+            yield return null;
+        }
+        
+        // fade out plant tree indicator
+        plantTreeIndicator.DOFade(0.0f, 0.5f);
+        
+        // wait for sometime
+        yield return new WaitForSeconds(1.0f);
+        
+        // prompt pressing T again
+        EnableTPrompt();
     }
 
     private void EnableTPrompt()

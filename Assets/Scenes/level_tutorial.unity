@@ -2479,6 +2479,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &227068961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 239880481269327020, guid: 84d5ce6e8dc88487aa973df81777696d, type: 3}
+  m_PrefabInstance: {fileID: 1614419528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d56c966378ac344a9b5583c0d85be17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &233018554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7459,6 +7470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tPrompt: {fileID: 429874077}
   plantTreeIndicator: {fileID: 1164731696}
+  treeToPlant: {fileID: 227068961}
 --- !u!1 &685100739
 GameObject:
   m_ObjectHideFlags: 0
