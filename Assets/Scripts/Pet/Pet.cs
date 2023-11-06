@@ -49,6 +49,8 @@ public class Pet : MultiStateObjectComponent
             {
                 isInteractable = false;
             }
+            
+            AttachPetToPlayer();
         }
     }
 
@@ -58,7 +60,7 @@ public class Pet : MultiStateObjectComponent
         {
             case TimeState.Past:
                 _canBeSaved = true;
-                SetPetSprite(1);
+                SetPetSprite(2);
 
                 break;
 
@@ -106,11 +108,6 @@ public class Pet : MultiStateObjectComponent
             {
                 SavePet();
             }
-        }
-        // else if the pet is saved and the time is at present
-        else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
-        {
-            AttachPetToPlayer();
         }
     }
 
