@@ -152,6 +152,7 @@ public class Tree : MultiStateObjectComponent
 
     private void CutDownTree()
     {
+        AnalyticsEventSystem.TriggerOnTreeChop();
         presentState = TreeState.CUT;
         isInteractable = false;
         SetCorrectTree();

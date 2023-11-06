@@ -118,7 +118,7 @@ public class TimeManager : MonoBehaviour
 
         
         ChangeCurrentGlobalTimeState(newTimeState);
-        
+        AnalyticsEventSystem.TriggerOnTimeTravel();
         
         yield return new WaitForSeconds(0.1f);
         _isTimeTransitionExecuting = false;
