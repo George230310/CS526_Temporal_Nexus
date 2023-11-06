@@ -19,6 +19,10 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         {
             _currentLevelNumber = 1;
         }
+        else if (SceneManager.GetActiveScene().name == "Level2S")
+        {
+            _currentLevelNumber = 2;
+        }
     }
 
     private void OnTimeTravelDataCollect()

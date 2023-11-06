@@ -119,11 +119,11 @@ public class Pet : MultiStateObjectComponent
 
         if (attachmentPointTransform)
         {
+            GameManager.Instance.isPetPickedUp = true;
             gameObject.transform.position = attachmentPointTransform.position;
             gameObject.transform.SetParent(attachmentPointTransform);
             _isAttachedToPlayer = true;
             isInteractable = false;
-            AnalyticsEventSystem.TriggerOnPetCollect(true);
         }
     }
 }

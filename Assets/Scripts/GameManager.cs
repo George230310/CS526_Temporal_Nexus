@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float petRange;
 
+    public bool isPetPickedUp;
+
     private void Awake()
     {
         // singleton pattern
@@ -77,6 +79,8 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
+        
+        AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
 
         if (EndGamePanel)
         {
@@ -95,6 +99,8 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         Time.timeScale = 0f;
+        
+        AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
 
         if (WinGamePanel)
         {
