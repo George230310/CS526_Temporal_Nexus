@@ -59,6 +59,16 @@ public class Pet : MultiStateObjectComponent
         switch (newTimeState)
         {
             case TimeState.Past:
+
+                if (!_isAttachedToPlayer)
+                {
+                    isInteractable = true;
+                }
+                else
+                {
+                    isInteractable = false;
+                }
+                
                 _canBeSaved = true;
                 SetPetSprite(2);
 
@@ -68,14 +78,7 @@ public class Pet : MultiStateObjectComponent
                 _canBeSaved = false;
 
                 // The pet is not interactable only if attached to the player.
-                if (_isAttachedToPlayer)
-                {
-                    isInteractable = false;
-                }
-                else
-                {
-                    isInteractable = true;
-                }
+                isInteractable = false;
 
                 // set the sprite for the pet based on conditions
                 SetPetSprite(_isSaved ? 2 : 0);
