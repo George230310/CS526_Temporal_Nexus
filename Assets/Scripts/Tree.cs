@@ -33,8 +33,7 @@ public class Tree : MultiStateObjectComponent
 
     public GameObject DeadTree;
 
-
-    private void Start()
+    private void Awake()
     {
         if (!planted)
         {
@@ -46,7 +45,11 @@ public class Tree : MultiStateObjectComponent
             pastState = TreeState.PLANTED;
             presentState = TreeState.GROWN;
         }
+    }
 
+
+    private void Start()
+    {
         SetCorrectTree();
     }
 
@@ -57,7 +60,7 @@ public class Tree : MultiStateObjectComponent
             case TimeState.Past:
                 if (pastState == TreeState.PLANTED)
                 {
-                    isInteractable = true;
+                    isInteractable = false;
                 }
                 else
                 {
@@ -66,17 +69,12 @@ public class Tree : MultiStateObjectComponent
                 break;
 
             case TimeState.Present:
+                
+                isInteractable = false;
+                
                 if (presentState != TreeState.CUT && pastState == TreeState.PLANTED)
                 {
                     presentState = TreeState.GROWN;
-                }
-
-                if (presentState == TreeState.CUT)
-                {
-                    isInteractable = false;
-                }
-                else
-                {
                     isInteractable = true;
                 }
 
@@ -154,9 +152,15 @@ public class Tree : MultiStateObjectComponent
 
     private void CutDownTree()
     {
+        AnalyticsEventSystem.TriggerOnTreeChop();
         presentState = TreeState.CUT;
         isInteractable = false;
         SetCorrectTree();
+    }
+
+    public bool IsPlanted()
+    {
+        return pastState == TreeState.PLANTED;
     }
 }
 

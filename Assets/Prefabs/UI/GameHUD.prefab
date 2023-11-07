@@ -596,7 +596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 65}
+  m_AnchoredPosition: {x: 100, y: 65}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &907819615150097593
@@ -728,7 +728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &907819615265404661
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -869,7 +869,7 @@ RectTransform:
   - {fileID: 907819615506632627}
   - {fileID: 907819615265404651}
   m_Father: {fileID: 8456070742286042173}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1427,9 +1427,8 @@ RectTransform:
   - {fileID: 5769571545888072232}
   - {fileID: 7191267184278000954}
   - {fileID: 5429108504946189178}
-  - {fileID: 2132309612449764227}
   m_Father: {fileID: 8456070742286042173}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2286,12 +2285,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6395259512111405752}
-  m_Father: {fileID: 2980800446970978477}
-  m_RootOrder: 3
+  m_Father: {fileID: 4048753940698541014}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -98.6, y: -116.7}
+  m_AnchoredPosition: {x: -74.1, y: 30.200012}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &826183965910687083
@@ -2489,7 +2488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.3, y: -30.6}
+  m_AnchoredPosition: {x: -28.5, y: -30.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &69067489225386074
@@ -2666,6 +2665,52 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8258337443295759682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4048753940698541014}
+  - component: {fileID: 3235998011452789321}
+  m_Layer: 5
+  m_Name: TImageBg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4048753940698541014
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258337443295759682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2132309612449764227}
+  m_Father: {fileID: 8456070742286042173}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 13.700012}
+  m_SizeDelta: {x: 358.87, y: 220.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3235998011452789321
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258337443295759682}
+  m_CullTransparentMesh: 1
 --- !u!1 &8456070741506813671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,6 +2960,7 @@ RectTransform:
   - {fileID: 53394387541077726}
   - {fileID: 8456070741506813674}
   - {fileID: 8456070743099675641}
+  - {fileID: 4048753940698541014}
   - {fileID: 2980800446970978477}
   - {fileID: 907819615475198368}
   m_Father: {fileID: 0}
@@ -3001,7 +3047,7 @@ MonoBehaviour:
   textPrompt: {fileID: 8280649468079143765}
   blackOverlay: {fileID: 6855762341585754539}
   optionPanel: {fileID: 53394387541077726}
-  timeTravelHint: {fileID: 7150641067785436225}
+  timeTravelHint: {fileID: 8258337443295759682}
   optionDescription: {fileID: 8370358486666308381}
   yesButtonText: {fileID: 4818745775718823956}
   noButtonText: {fileID: 2883570618642342082}
