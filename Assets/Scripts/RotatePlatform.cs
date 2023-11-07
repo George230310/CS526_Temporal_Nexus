@@ -19,5 +19,12 @@ public class RotatePlatform : MonoBehaviour
             transform.DORotate(targetRotation.eulerAngles, 0.5f);
             _isRotated = true;
         }
+        else
+        {
+            Quaternion axisRotation = Quaternion.AngleAxis(-rotateAngle, Vector3.forward);
+            Quaternion targetRotation = axisRotation * transform.rotation;
+            transform.DORotate(targetRotation.eulerAngles, 0.5f);
+            _isRotated = false;
+        }
     }
 }
