@@ -14,6 +14,8 @@ public class Switch : MultiStateObjectComponent
     // bool determining if this switch is enabled
     private bool _isSwitchEnabled;
 
+    public bool isDataSender;
+
     private void Start()
     {
         // initialize switch sprite
@@ -57,6 +59,11 @@ public class Switch : MultiStateObjectComponent
     {
         if (_isSwitchEnabled)
         {
+            if (isDataSender)
+            {
+                GameManager.Instance.isMiddleDoorOpened = true;
+            }
+            
             foreach (var e in movableBlockEvents)
             {
                 e.Invoke();

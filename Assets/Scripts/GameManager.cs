@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
 
     public bool isPetPickedUp;
 
+    public bool isMiddleDoorOpened;
+
+    public bool isHardPuzzlePassed;
+
     private void Awake()
     {
         // singleton pattern
@@ -81,6 +85,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         
         AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
+        AnalyticsEventSystem.TriggerOnPassingPuzzle(isHardPuzzlePassed);
 
         if (EndGamePanel)
         {
@@ -101,6 +107,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         
         AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
+        AnalyticsEventSystem.TriggerOnPassingPuzzle(isHardPuzzlePassed);
 
         if (WinGamePanel)
         {

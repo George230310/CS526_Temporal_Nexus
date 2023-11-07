@@ -14,6 +14,8 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         AnalyticsEventSystem.OnTimeTravel += OnTimeTravelDataCollect;
         AnalyticsEventSystem.OnTreeChop += OnTreeChopDataCollect;
         AnalyticsEventSystem.OnPetCollect += OnPetDataCollect;
+        AnalyticsEventSystem.OnOpenDoor += OnOpenDoorDataCollect;
+        AnalyticsEventSystem.OnPassingHardPuzzle += OnPassingHardPuzzleCollect;
 
         if (SceneManager.GetActiveScene().name == "Level_1_liu")
         {
@@ -23,6 +25,25 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         {
             _currentLevelNumber = 2;
         }
+    }
+
+    private void OnPassingHardPuzzleCollect(bool isPuzzlePassed)
+    {
+        if (_currentLevelNumber == -1)
+        {
+            return;
+        }
+
+        StartCoroutine(PostPuzzlePassedData(_currentLevelNumber, isPuzzlePassed));
+    }
+    private void OnOpenDoorDataCollect(bool isMiddleDoorOpen)
+    {
+        if (_currentLevelNumber == -1)
+        {
+            return;
+        }
+
+        StartCoroutine(PostOpenDoorData(_currentLevelNumber, isMiddleDoorOpen));
     }
 
     private void OnTimeTravelDataCollect()
@@ -68,6 +89,62 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         AnalyticsEventSystem.OnTimeTravel -= OnTimeTravelDataCollect;
         AnalyticsEventSystem.OnTreeChop -= OnTreeChopDataCollect;
         AnalyticsEventSystem.OnPetCollect -= OnPetDataCollect;
+        AnalyticsEventSystem.OnOpenDoor -= OnOpenDoorDataCollect;
+        AnalyticsEventSystem.OnPassingHardPuzzle -= OnPassingHardPuzzleCollect;
+    }
+    
+    private IEnumerator PostPuzzlePassedData(int level, bool isPuzzlePassed)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm();
+        
+        if (level == 2)
+        {
+            URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScrd_-AspSeO7z6vl4Y_VCBEFi3aopiliHn53Bxn8tbLPpAfw/formResponse";
+            form.AddField("entry.826710953", isPuzzlePassed.ToString());
+        }
+        
+        // Send responses and verify result
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Level" + level + ": " + "passing hard puzzle upload complete!");
+            }
+        }
+    }
+    
+    private IEnumerator PostOpenDoorData(int level, bool isMiddleDoorOpen)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm();
+        
+        if (level == 2)
+        {
+            URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScyD04SIFjUV3a7bhofIXqmAECWsNv1Lhe-DTvUsHI5Ky9DCA/formResponse";
+            form.AddField("entry.1900063579", isMiddleDoorOpen.ToString());
+        }
+        
+        // Send responses and verify result
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Level" + level + ": " + "reaching midpoint upload complete!");
+            }
+        }
     }
     
     private IEnumerator PostTimeTravelPositionData(int level, string xCoord, string yCoord)
