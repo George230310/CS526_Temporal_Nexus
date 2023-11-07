@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public bool isPetPickedUp;
 
+    public bool isMiddleDoorOpened;
+
     private void Awake()
     {
         // singleton pattern
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         
         AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
 
         if (EndGamePanel)
         {
@@ -101,6 +104,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         
         AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
 
         if (WinGamePanel)
         {

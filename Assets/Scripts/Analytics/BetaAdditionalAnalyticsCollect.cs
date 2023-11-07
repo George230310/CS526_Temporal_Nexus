@@ -14,6 +14,7 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         AnalyticsEventSystem.OnTimeTravel += OnTimeTravelDataCollect;
         AnalyticsEventSystem.OnTreeChop += OnTreeChopDataCollect;
         AnalyticsEventSystem.OnPetCollect += OnPetDataCollect;
+        AnalyticsEventSystem.OnOpenDoor += OnOpenDoorDataCollect;
 
         if (SceneManager.GetActiveScene().name == "Level_1_liu")
         {
@@ -22,6 +23,43 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Level2S")
         {
             _currentLevelNumber = 2;
+        }
+    }
+
+    private void OnOpenDoorDataCollect(bool isMiddleDoorOpen)
+    {
+        if (_currentLevelNumber == -1)
+        {
+            return;
+        }
+
+        StartCoroutine(PostOpenDoorData(_currentLevelNumber, isMiddleDoorOpen));
+    }
+
+    private IEnumerator PostOpenDoorData(int level, bool isMiddleDoorOpen)
+    {
+        // Create the form and enter responses
+        WWWForm form = new WWWForm();
+        
+        if (level == 2)
+        {
+            URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScyD04SIFjUV3a7bhofIXqmAECWsNv1Lhe-DTvUsHI5Ky9DCA/formResponse";
+            form.AddField("entry.1900063579", isMiddleDoorOpen.ToString());
+        }
+        
+        // Send responses and verify result
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Level" + level + ": " + "Midpoint reached!");
+            }
         }
     }
 
@@ -68,6 +106,7 @@ public class BetaAdditionalAnalyticsCollect : MonoBehaviour
         AnalyticsEventSystem.OnTimeTravel -= OnTimeTravelDataCollect;
         AnalyticsEventSystem.OnTreeChop -= OnTreeChopDataCollect;
         AnalyticsEventSystem.OnPetCollect -= OnPetDataCollect;
+        AnalyticsEventSystem.OnOpenDoor -= OnOpenDoorDataCollect;
     }
     
     private IEnumerator PostTimeTravelPositionData(int level, string xCoord, string yCoord)

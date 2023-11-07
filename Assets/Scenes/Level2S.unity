@@ -15144,6 +15144,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7849995943357923873, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
+      propertyPath: isDataSender
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849995943357923873, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
       propertyPath: movableBlockEvents.Array.size
       value: 1
       objectReference: {fileID: 0}
