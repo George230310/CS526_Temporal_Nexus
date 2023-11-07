@@ -52,7 +52,7 @@ public class Spike : MonoBehaviour
             {
                 StartCoroutine(Post(1, otherPosition.x.ToString(), otherPosition.y.ToString()));
             }
-            else if (SceneManager.GetActiveScene().name == "Level2Lg")
+            else if (SceneManager.GetActiveScene().name == "Level2S")
             {
                 StartCoroutine(Post(2, otherPosition.x.ToString(), otherPosition.y.ToString()));
             }

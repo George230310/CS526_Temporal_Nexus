@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float petRange;
 
+    public bool isPetPickedUp;
+
+    public bool isMiddleDoorOpened;
+
+    public bool isHardPuzzlePassed;
+
     private void Awake()
     {
         // singleton pattern
@@ -77,6 +83,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
+        
+        AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
+        AnalyticsEventSystem.TriggerOnPassingPuzzle(isHardPuzzlePassed);
 
         if (EndGamePanel)
         {
@@ -95,6 +105,10 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         Time.timeScale = 0f;
+        
+        AnalyticsEventSystem.TriggerOnPetCollect(isPetPickedUp);
+        AnalyticsEventSystem.TriggerOnOpenDoor(isMiddleDoorOpened);
+        AnalyticsEventSystem.TriggerOnPassingPuzzle(isHardPuzzlePassed);
 
         if (WinGamePanel)
         {

@@ -77,7 +77,7 @@ public class TimeManager : MonoBehaviour
         }
         
         // if the closest multi-state object is close enough, set it to be the player's interaction target
-        if (minDist < 7.0f)
+        if (minDist < 10.0f)
         {
             interactionTarget = closestComp;
             if (interactionTarget && interactionTarget.isInteractable)
@@ -109,18 +109,13 @@ public class TimeManager : MonoBehaviour
         }
         
         _isTimeTransitionExecuting = true;
-        StartCoroutine(ExecuteTimeTransition(newTimeState));
+        ExecuteTimeTransition(newTimeState);
     }
 
-    private IEnumerator ExecuteTimeTransition(TimeState newTimeState)
+    private void ExecuteTimeTransition(TimeState newTimeState)
     {
-        yield return new WaitForSeconds(0.1f);
-
-        
         ChangeCurrentGlobalTimeState(newTimeState);
-        
-        
-        yield return new WaitForSeconds(0.1f);
+        AnalyticsEventSystem.TriggerOnTimeTravel();
         _isTimeTransitionExecuting = false;
     }
 

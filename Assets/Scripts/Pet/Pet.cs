@@ -49,6 +49,8 @@ public class Pet : MultiStateObjectComponent
             {
                 isInteractable = false;
             }
+            
+            AttachPetToPlayer();
         }
     }
 
@@ -57,8 +59,18 @@ public class Pet : MultiStateObjectComponent
         switch (newTimeState)
         {
             case TimeState.Past:
+
+                if (!_isAttachedToPlayer)
+                {
+                    isInteractable = true;
+                }
+                else
+                {
+                    isInteractable = false;
+                }
+                
                 _canBeSaved = true;
-                SetPetSprite(1);
+                SetPetSprite(2);
 
                 break;
 
@@ -66,14 +78,7 @@ public class Pet : MultiStateObjectComponent
                 _canBeSaved = false;
 
                 // The pet is not interactable only if attached to the player.
-                if (_isAttachedToPlayer)
-                {
-                    isInteractable = false;
-                }
-                else
-                {
-                    isInteractable = true;
-                }
+                isInteractable = false;
 
                 // set the sprite for the pet based on conditions
                 SetPetSprite(_isSaved ? 2 : 0);
@@ -107,11 +112,6 @@ public class Pet : MultiStateObjectComponent
                 SavePet();
             }
         }
-        // else if the pet is saved and the time is at present
-        else if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
-        {
-            AttachPetToPlayer();
-        }
     }
 
     private void AttachPetToPlayer()
@@ -122,6 +122,7 @@ public class Pet : MultiStateObjectComponent
 
         if (attachmentPointTransform)
         {
+            GameManager.Instance.isPetPickedUp = true;
             gameObject.transform.position = attachmentPointTransform.position;
             gameObject.transform.SetParent(attachmentPointTransform);
             _isAttachedToPlayer = true;

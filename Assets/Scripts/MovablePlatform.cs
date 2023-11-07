@@ -6,9 +6,16 @@ public class MovablePlatform : MonoBehaviour
 {
     [SerializeField] private float speed = 10f; // Speed at which the platform moves.
     [SerializeField] private float moveDistance = 20f; // Distance the platform moves before changing direction.
+
+    private bool _shouldPlatformMove;
     
     private Vector3 startPosition;
     private bool movingRight = true; // Determines the direction the platform is moving.
+
+    public void EnablePlatformMove()
+    {
+        _shouldPlatformMove = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +26,11 @@ public class MovablePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_shouldPlatformMove)
+        {
+            return;
+        }
+        
         // Calculate the platform's current position based on its direction.
         if (movingRight)
         {

@@ -26,7 +26,7 @@ public class LevelAnalyticsCollect : MonoBehaviour
         {
             level = 1;
         }
-        else if (SceneManager.GetActiveScene().name == "Level2Lg")
+        else if (SceneManager.GetActiveScene().name == "Level2S")
         {
             level = 2;
         }
