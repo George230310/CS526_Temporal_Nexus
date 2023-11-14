@@ -523,14 +523,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_Color: {r: 0.6897472, g: 0.7617723, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2b97a342001f3144198313b137a22f01, type: 3}
+  m_Texture: {fileID: 2800000, guid: df4fd1a414e3e1c439f5d32265cd8f15, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
