@@ -109,18 +109,13 @@ public class TimeManager : MonoBehaviour
         }
         
         _isTimeTransitionExecuting = true;
-        StartCoroutine(ExecuteTimeTransition(newTimeState));
+        ExecuteTimeTransition(newTimeState);
     }
 
-    private IEnumerator ExecuteTimeTransition(TimeState newTimeState)
+    private void ExecuteTimeTransition(TimeState newTimeState)
     {
-        yield return new WaitForSeconds(0.1f);
-
-        
         ChangeCurrentGlobalTimeState(newTimeState);
         AnalyticsEventSystem.TriggerOnTimeTravel();
-        
-        yield return new WaitForSeconds(0.1f);
         _isTimeTransitionExecuting = false;
     }
 
