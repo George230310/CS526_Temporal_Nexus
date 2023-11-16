@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 5
-  moveSpeed: 2
-  moveDistance: 2
+  moveSpeed: 5
+  moveDistance: 1
 --- !u!114 &2306926082933486853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a469d31e814717948b50a774f75a8c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   collisionDelta: 1.8
 --- !u!114 &4800288592053303944
 MonoBehaviour:

@@ -76,7 +76,7 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
                 // switch to egg sprite
                 enemyEggSprite.SetActive(true);
                 enemySprite.SetActive(false);
-
+      
                 if (_movement)
                 {
                     _movement.enabled = false;
