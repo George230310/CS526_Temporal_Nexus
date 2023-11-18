@@ -29,11 +29,7 @@ public class Spike : MonoBehaviour
 
             HealthComponent comp = playerHealth;
             comp.TakeDamage(10f);
-
-            canTakeDamage = false; // Disable damage temporarily.
-            StartCoroutine(EnableDamageAfterCooldown());
-
-            //StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
+          
         }
     }
 
@@ -46,8 +42,7 @@ public class Spike : MonoBehaviour
             HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
             comp.TakeDamage(20f);
 
-            // Call the ShakePlayer method to make the player vibrate.
-            StartCoroutine(ShakePlayer(other.transform, 0.1f, 0.1f, 0.1f));
+
             if (SceneManager.GetActiveScene().name == "Level_1_liu")
             {
                 StartCoroutine(Post(1, otherPosition.x.ToString(), otherPosition.y.ToString()));
@@ -60,40 +55,9 @@ public class Spike : MonoBehaviour
         }
     }
 
-    IEnumerator EnableDamageAfterCooldown()
-    {
-        yield return new WaitForSeconds(damageCooldown);
-        canTakeDamage = true; // Enable damage after the cooldown.
-    }
 
-    IEnumerator DamageOverTime()
-    {
-        while (playerHealth != null)
-        {
-            playerHealth.TakeDamage(5f); // Adjust the damage per 2 seconds as needed.
-            yield return new WaitForSeconds(2f); // Damage rate is every 2 seconds.
-        }
-    }
 
-    [CanBeNull]
-    IEnumerator ShakePlayer(Transform playerTransform, float duration, float magnitudeX, float magnitudeY)
-    {
-        Vector3 originalPosition = playerTransform.position;
-        float elapsed = 0f;
 
-        while (elapsed < duration)
-        {
-            float xOffset = Random.Range(-3f, 3f) * magnitudeX;
-            float yOffset = Random.Range(-3f, 3f) * magnitudeY;
-
-            playerTransform.position = originalPosition + new Vector3(xOffset, yOffset, originalPosition.z);
-
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        playerTransform.position = originalPosition;
-    }
     
     private IEnumerator Post(int level, string xCoord, string yCoord)
     {
