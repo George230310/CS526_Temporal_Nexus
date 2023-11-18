@@ -28,7 +28,7 @@ public class Spike : MonoBehaviour
             playerHealth = other.gameObject.GetComponent<HealthComponent>();
 
             HealthComponent comp = playerHealth;
-            comp.TakeDamage(10f);
+            comp.TakeDamage(20f);
           
         }
     }
@@ -40,7 +40,7 @@ public class Spike : MonoBehaviour
             Vector3 otherPosition = other.gameObject.transform.position;
             
             HealthComponent comp = other.gameObject.GetComponent<HealthComponent>();
-            comp.TakeDamage(20f);
+    
 
 
             if (SceneManager.GetActiveScene().name == "Level_1_liu")
