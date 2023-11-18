@@ -39,6 +39,21 @@ public class HealthComponent : MonoBehaviour
         // if the enemy died
         else
         {
+            MultiStateEnemy enemy = GetComponent<MultiStateEnemy>();
+            if (enemy == null)
+            {
+                enemy = GetComponent<MultiStateNormalEnemy>() as MultiStateEnemy;
+            }
+            if (enemy == null)
+            {
+                enemy = GetComponent<MultiStateProjectileEnemy>() as MultiStateEnemy;
+            }
+
+            if (enemy != null && enemy.Loot != null)
+            {
+                Instantiate(enemy.Loot, transform.position, transform.rotation);
+            }
+            
             Destroy(gameObject);
         }
     }
