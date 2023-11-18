@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // TODO: Store enemy state so that they respawn too.
         if (other.CompareTag("Player") && !isCheckpointSet)
         {
             PlayerController player = other.GetComponent<PlayerController>();
