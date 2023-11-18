@@ -33,8 +33,19 @@ public class HealthComponent : MonoBehaviour
         // if the player died
         if (gameObject.CompareTag("Player"))
         {
-            // game over
-            GameManager.Instance.EndGame();
+            PlayerController player = gameObject.GetComponent<PlayerController>();
+            if (player.Checkpoint != null)
+            {
+                player.transform.position = player.Checkpoint.PositionAtCheckpoint;
+                health = player.Checkpoint.HealthAtCheckpoint;
+            }
+
+            if (health <= 0f)
+            {
+                // game over
+                GameManager.Instance.EndGame();
+            }
+
         }
         // if the enemy died
         else
@@ -53,7 +64,7 @@ public class HealthComponent : MonoBehaviour
             {
                 Instantiate(enemy.Loot, transform.position, transform.rotation);
             }
-            
+
             Destroy(gameObject);
         }
     }

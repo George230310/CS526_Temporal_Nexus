@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5.5f;
     public float gravityScale = 2.0f;
     public Camera mainCamera;
-    
+
+    public Checkpoint Checkpoint;
+
     public LevelAnalyticsCollect LevelAnalytics;
-    // Tutorial flags
 
     public bool tutorialMovementEnabled = true;
 
