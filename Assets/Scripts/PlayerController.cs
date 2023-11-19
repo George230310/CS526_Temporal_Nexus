@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 2.0f;
     public Camera mainCamera;
 
-    public Checkpoint Checkpoint;
+    public List<Checkpoint> Checkpoints;
 
     public LevelAnalyticsCollect LevelAnalytics;
 
@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
         {
             mainCamera.transform.position = new Vector3(t.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
         }
+
+        Checkpoints = new();
     }
 
     void Update()

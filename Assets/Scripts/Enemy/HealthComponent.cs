@@ -34,10 +34,25 @@ public class HealthComponent : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             PlayerController player = gameObject.GetComponent<PlayerController>();
-            if (player.Checkpoint != null)
+            Vector3 currentPosition = gameObject.transform.position;
+            Checkpoint nearestCheckpoint = null;
+
+            float checkpointDistance = float.MaxValue;
+            for (int i = 0; i < player.Checkpoints.Count; ++i)
             {
-                player.transform.position = player.Checkpoint.PositionAtCheckpoint;
-                health = player.Checkpoint.HealthAtCheckpoint;
+                Vector3 checkpointPosition = player.Checkpoints[i].PositionAtCheckpoint;
+                float distance = Vector3.Distance(currentPosition, checkpointPosition);
+                if (distance < checkpointDistance)
+                {
+                    nearestCheckpoint = player.Checkpoints[i];
+                    checkpointDistance = distance;
+                }
+            }
+
+            if (nearestCheckpoint!= null)
+            {
+                player.transform.position = nearestCheckpoint.PositionAtCheckpoint;
+                health = nearestCheckpoint.HealthAtCheckpoint;
             }
 
             if (health <= 0f)

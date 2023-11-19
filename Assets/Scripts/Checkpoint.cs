@@ -26,7 +26,7 @@ public class Checkpoint : MonoBehaviour
 
             PositionAtCheckpoint = player.gameObject.transform.position;
             HealthAtCheckpoint = health.health;
-            player.Checkpoint = this;
+            player.Checkpoints.Add(this);
 
             isCheckpointSet = true;
 
