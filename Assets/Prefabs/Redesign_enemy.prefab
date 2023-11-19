@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2436324932733575435, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
     - target: {fileID: 2436324932823582354, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2436324932823582355, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
       propertyPath: m_Name
-      value: ProjectileEnemy
+      value: Redesign_enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2436324932823582357, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
       propertyPath: moveDistance
@@ -63,9 +67,51 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 93f072aa3f41fd04189b971e92bb6596, type: 3}
+    - target: {fileID: 3874792942834525413, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
+      propertyPath: m_Size.y
+      value: 4.854542
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874792942834525413, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5727291
+      objectReference: {fileID: 0}
     - target: {fileID: 4800288592053303944, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3874792942834525413, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
+--- !u!1 &1150425194222943875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2436324932823582355, guid: f9d3455f0f9cd1044a58b079747b6049, type: 3}
+  m_PrefabInstance: {fileID: 3330606538807179280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &5372019641186212906
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150425194222943875}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 6.038254, y: -1.7530713}
+      - {x: 0.02059263, y: 3.455384}
+      - {x: -5.9319777, y: -1.6650139}
