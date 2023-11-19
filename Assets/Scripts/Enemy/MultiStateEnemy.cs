@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class MultiStateEnemy : MultiStateObjectComponent
 {
+    public GameObject Loot;
     public override void OnTimeStateChange(TimeState newTimeState)
     {
         
