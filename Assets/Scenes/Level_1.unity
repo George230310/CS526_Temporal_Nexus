@@ -15630,6 +15630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVerticalMove: 1
+  isPartOfMovingPlatform: 0
   moveOffset: -15
   moveDuration: 1
 --- !u!1 &1306094860
@@ -15935,6 +15936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVerticalMove: 0
+  isPartOfMovingPlatform: 0
   moveOffset: 25
   moveDuration: 1
 --- !u!1 &1349981919
@@ -22897,6 +22899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   plantTreeCost: 10
+  planted: 0
   UnplantedTree: {fileID: 90342076}
   PlantedTree: {fileID: 1687642993}
   GrownTree: {fileID: 199051558}
@@ -27121,6 +27124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   plantTreeCost: 10
+  planted: 0
   UnplantedTree: {fileID: 5375716239873516609}
   PlantedTree: {fileID: 5375716239000478841}
   GrownTree: {fileID: 5375716240895999830}
