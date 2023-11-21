@@ -12,6 +12,7 @@ TagManager:
   - TutorialVolume
   - Enemy
   - Bullet
+  - HangingPlatform
   layers:
   - Default
   - TransparentFX

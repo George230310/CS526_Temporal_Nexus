@@ -301,6 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
+  Loot: {fileID: 0}
+  hideInPast: 0
 --- !u!1 &6240627825673522212
 GameObject:
   m_ObjectHideFlags: 0
