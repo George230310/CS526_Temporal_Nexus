@@ -12,7 +12,7 @@ public class MultiStateNormalEnemy : MultiStateEnemy
         switch (newTimeState)
         {
             case TimeState.Past:
-                gameObject.SetActive(!hideInPast);
+                gameObject.SetActive(false);
                 break;
             
             case TimeState.Present:
