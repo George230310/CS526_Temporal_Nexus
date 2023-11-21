@@ -58,4 +58,11 @@ public class PauseMenuController : MonoBehaviour
         IsPaused = false;
         SceneManager.LoadScene(MainMenuSceneName);
     }
+
+    public void NextLevel(string sceneName)
+    {
+        Time.timeScale = 1f;
+        IsPaused = false;
+        SceneManager.LoadScene(sceneName);
+    }
 }
