@@ -29,16 +29,13 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
 
     private void Update()
     {
-        // if it the present, fire projectiles
-        if (TimeManager.Instance.CurrentGlobalTimeState == TimeState.Present)
+        // fire projectiles
+        _shootTimer += Time.deltaTime;
+        if (_shootTimer >= shootCoolDown)
         {
-            _shootTimer += Time.deltaTime;
-            if (_shootTimer >= shootCoolDown)
-            {
-                _shootTimer = 0.0f;
+            _shootTimer = 0.0f;
 
-                StartCoroutine(FireConsecutiveBullets());
-            }
+            StartCoroutine(FireConsecutiveBullets());
         }
     }
 
@@ -64,27 +61,6 @@ public class MultiStateProjectileEnemy : MultiStateEnemy
         switch (newTimeState)
         {
             case TimeState.Past:
-                if (_dealer)
-                {
-                    // egg cannot be stomped in the past
-                    _dealer.ToggleCanBeStomped(false);
-                    
-                    // egg cannot deal damage in the past
-                    _dealer.ToggleCanDealDamage(false);
-                }
-                
-                // switch to egg sprite
-                enemyEggSprite.SetActive(true);
-                enemySprite.SetActive(false);
-
-                if (_movement)
-                {
-                    _movement.enabled = false;
-                }
-
-                _rigidbody.isKinematic = true;
-                _rigidbody.velocity = Vector2.zero;
-                StopAllCoroutines();
                 
                 break;
             
