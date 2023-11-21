@@ -33,12 +33,53 @@ public class HealthComponent : MonoBehaviour
         // if the player died
         if (gameObject.CompareTag("Player"))
         {
-            // game over
-            GameManager.Instance.EndGame();
+            PlayerController player = gameObject.GetComponent<PlayerController>();
+            Vector3 currentPosition = gameObject.transform.position;
+            Checkpoint nearestCheckpoint = null;
+
+            float checkpointDistance = float.MaxValue;
+            for (int i = 0; i < player.Checkpoints.Count; ++i)
+            {
+                Vector3 checkpointPosition = player.Checkpoints[i].PositionAtCheckpoint;
+                float distance = Vector3.Distance(currentPosition, checkpointPosition);
+                if (distance < checkpointDistance)
+                {
+                    nearestCheckpoint = player.Checkpoints[i];
+                    checkpointDistance = distance;
+                }
+            }
+
+            if (nearestCheckpoint!= null)
+            {
+                player.transform.position = nearestCheckpoint.PositionAtCheckpoint;
+                health = nearestCheckpoint.HealthAtCheckpoint;
+            }
+
+            if (health <= 0f)
+            {
+                // game over
+                GameManager.Instance.EndGame();
+            }
+
         }
         // if the enemy died
         else
         {
+            MultiStateEnemy enemy = GetComponent<MultiStateEnemy>();
+            if (enemy == null)
+            {
+                enemy = GetComponent<MultiStateNormalEnemy>() as MultiStateEnemy;
+            }
+            if (enemy == null)
+            {
+                enemy = GetComponent<MultiStateProjectileEnemy>() as MultiStateEnemy;
+            }
+
+            if (enemy != null && enemy.Loot != null)
+            {
+                Instantiate(enemy.Loot, transform.position, transform.rotation);
+            }
+
             Destroy(gameObject);
         }
     }
