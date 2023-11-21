@@ -35374,6 +35374,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2136443088}
     - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
+      propertyPath: shouldCameraFollow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
       propertyPath: tutorialJumpEnabled
       value: 0
       objectReference: {fileID: 0}
