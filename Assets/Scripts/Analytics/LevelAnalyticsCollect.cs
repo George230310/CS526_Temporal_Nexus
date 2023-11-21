@@ -72,19 +72,22 @@ public class LevelAnalyticsCollect : MonoBehaviour
             form.AddField("entry.1438990754", timeTravelCnt);
             form.AddField("entry.1594580052", levelComplete);
         }
-        
-        // Send responses and verify result
-        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
-        {
-            yield return www.SendWebRequest();
 
-            if (www.result != UnityWebRequest.Result.Success)
+        if (level is 1 or 2)
+        {
+            // Send responses and verify result
+            using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
             {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log("Level" + level + ": " + "Form upload complete!");
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(www.error);
+                }
+                else
+                {
+                    Debug.Log("Level" + level + ": " + "Form upload complete!");
+                }
             }
         }
     }
