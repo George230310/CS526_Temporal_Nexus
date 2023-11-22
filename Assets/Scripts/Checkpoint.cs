@@ -31,8 +31,6 @@ public class Checkpoint : MonoBehaviour
             player.Checkpoints.Add(this);
 
             isCheckpointSet = true;
-
-            gameObject.SetActive(false);
         }
     }
 }
