@@ -77,7 +77,12 @@ public class HealthComponent : MonoBehaviour
 
             if (enemy != null && enemy.Loot != null)
             {
-                Instantiate(enemy.Loot, transform.position, transform.rotation);
+                GameObject loot = Instantiate(enemy.Loot, transform.position, transform.rotation);
+                HealthPickup healthPickup = loot.GetComponent<HealthPickup>();
+                if (healthPickup != null)
+                {
+                    healthPickup.Drop();
+                }
             }
 
             Destroy(gameObject);
