@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -81,6 +82,7 @@ public class HealthComponent : MonoBehaviour
                 HealthPickup healthPickup = loot.GetComponent<HealthPickup>();
                 if (healthPickup != null)
                 {
+                    loot.transform.DOJump(transform.position, 5f, 1, healthPickup.PickupDelay, false);
                     healthPickup.Drop();
                 }
             }
