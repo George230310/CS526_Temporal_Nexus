@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool shouldCameraFollow;
     [SerializeField] private GameObject interactionPrompt;
+
+    public TextMeshPro HealthDamageText;
 
     void Start()
     {
