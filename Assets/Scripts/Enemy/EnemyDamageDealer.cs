@@ -59,6 +59,25 @@ public class EnemyDamageDealer : MonoBehaviour
                 }
             }
         }
+
+        if (other.gameObject.CompareTag("HangingPlatform"))
+        {
+            // must check collision direction
+            Vector3 otherPosition = other.gameObject.transform.position;
+            Vector3 myPosition = gameObject.transform.position;
+
+            bool hitFromTop = (otherPosition.y - myPosition.y > collisionDelta);
+
+            // if enemy gets hit from top, enemy is stomped
+            if (hitFromTop && _canBeStomped)
+            {
+                HealthComponent myHealth = GetComponent<HealthComponent>();
+                if (myHealth)
+                {
+                    myHealth.TakeDamage(100.0f);
+                }
+            }
+        }
     }
     
     private IEnumerator Post(int level, string xCoord, string yCoord)

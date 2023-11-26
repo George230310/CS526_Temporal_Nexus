@@ -10,6 +10,8 @@ public class Checkpoint : MonoBehaviour
 
     public float HealthAtCheckpoint;
 
+    public float MinHealthAtCheckpoint;
+
     void Awake()
     {
         isCheckpointSet = false;
@@ -25,12 +27,10 @@ public class Checkpoint : MonoBehaviour
             HealthComponent health = other.GetComponent<HealthComponent>();
 
             PositionAtCheckpoint = player.gameObject.transform.position;
-            HealthAtCheckpoint = health.health;
+            HealthAtCheckpoint = Mathf.Max(health.health, MinHealthAtCheckpoint);
             player.Checkpoints.Add(this);
 
             isCheckpointSet = true;
-
-            gameObject.SetActive(false);
         }
     }
 }

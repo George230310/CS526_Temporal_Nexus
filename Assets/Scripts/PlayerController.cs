@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
         
         if (mainCamera && shouldCameraFollow)
         {
+            mainCamera.transform.position = new Vector3(t.position.x, t.position.y, mainCamera.transform.position.z);
+        }
+        else if (mainCamera)
+        {
             mainCamera.transform.position = new Vector3(t.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
         }
 
@@ -67,6 +71,10 @@ float dirX = Input.GetAxis("Horizontal");
         
         // Camera follow
         if (mainCamera && shouldCameraFollow)
+        {
+            mainCamera.transform.position = new Vector3(t.position.x, t.transform.position.y, mainCamera.transform.position.z);
+        }
+        else if (mainCamera)
         {
             mainCamera.transform.position = new Vector3(t.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
         }

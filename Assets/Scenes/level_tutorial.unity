@@ -16293,6 +16293,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 248935565862260646, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 248935565862260646, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 248935565862260646, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level_1_liu
+      objectReference: {fileID: 0}
     - target: {fileID: 907819615265404650, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_text
       value: '''A'' and ''D'' to move
@@ -16390,6 +16402,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042173, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456070743099675640, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35357,6 +35373,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 2136443088}
+    - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
+      propertyPath: shouldCameraFollow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7521332932337995655, guid: 40aa69b7cc4bc734b8538582c199273c, type: 3}
       propertyPath: tutorialJumpEnabled
       value: 0
