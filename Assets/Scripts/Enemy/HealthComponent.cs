@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -77,7 +78,13 @@ public class HealthComponent : MonoBehaviour
 
             if (enemy != null && enemy.Loot != null)
             {
-                Instantiate(enemy.Loot, transform.position, transform.rotation);
+                GameObject loot = Instantiate(enemy.Loot, transform.position, transform.rotation);
+                HealthPickup healthPickup = loot.GetComponent<HealthPickup>();
+                if (healthPickup != null)
+                {
+                    loot.transform.DOJump(transform.position, 5f, 1, healthPickup.PickupDelay, false);
+                    healthPickup.Drop();
+                }
             }
 
             Destroy(gameObject);
