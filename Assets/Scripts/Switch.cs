@@ -20,7 +20,7 @@ public class Switch : MultiStateObjectComponent
 
     public Sprite DisabledSprite;
 
-    private void Start()
+    private void Awake()
     {
         // initialize switch sprite
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
