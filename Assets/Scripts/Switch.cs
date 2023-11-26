@@ -25,6 +25,14 @@ public class Switch : MultiStateObjectComponent
         // initialize switch sprite
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _spriteRenderer.color = Color.yellow;
+        if (_isSwitchEnabled)
+        {
+            _spriteRenderer.sprite = EnabledSprite;
+        }
+        else
+        {
+            _spriteRenderer.sprite = DisabledSprite;
+        }
     }
     
     // on time state change function of switch
