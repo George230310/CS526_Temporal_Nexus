@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MovablePlatform : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MovablePlatform : MonoBehaviour
     
     private Vector3 startPosition;
     private bool movingRight = true; // Determines the direction the platform is moving.
+
+    private Tween moveTween = null;
 
     public void EnablePlatformMove()
     {
@@ -30,23 +33,30 @@ public class MovablePlatform : MonoBehaviour
         {
             return;
         }
+
+        if (moveTween == null || moveTween.IsComplete())
+        {
+            moveTween = transform.DOLocalMoveX(transform.localPosition.x + moveDistance, moveDistance / speed)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo);
+        }
         
-        // Calculate the platform's current position based on its direction.
-        if (movingRight)
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-            if (transform.position.x > startPosition.x + moveDistance)
-            {
-                movingRight = false; // Change direction if it moved far enough.
-            }
-        }
-        else
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-            if (transform.position.x < startPosition.x)
-            {
-                movingRight = true; // Change direction if it moved back to the start.
-            }
-        }
+    //     // calculate the platform's current position based on its direction.
+    //     if (movingright)
+    //     {
+    //         transform.translate(vector3.right * speed * time.deltatime, space.world);
+    //         if (transform.position.x > startposition.x + movedistance)
+    //         {
+    //             movingright = false; // change direction if it moved far enough.
+    //         }
+    //     }
+    //     else
+    //     {
+    //         transform.translate(vector3.left * speed * time.deltatime, space.world);
+    //         if (transform.position.x < startposition.x)
+    //         {
+    //             movingright = true; // change direction if it moved back to the start.
+    //         }
+    //     }
     }
 }
