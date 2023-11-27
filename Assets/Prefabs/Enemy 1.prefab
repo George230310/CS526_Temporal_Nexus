@@ -232,9 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9733577e3517489ca547b3a7c579b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 5
+  fallSpeed: 10
   moveSpeed: 2
   moveDistance: 2
+  detectionRangeForPlayer: 40
+  shouldChasePlayer: 1
 --- !u!114 &2306926082933486853
 MonoBehaviour:
   m_ObjectHideFlags: 0

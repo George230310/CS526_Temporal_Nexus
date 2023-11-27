@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MultiStateObjectComponent
@@ -58,10 +57,7 @@ public class Bullet : MultiStateObjectComponent
 
     public override void OnTimeStateChange(TimeState newTimeState)
     {
-        if (newTimeState == TimeState.Past)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public override void OnInteract()
