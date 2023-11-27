@@ -23,12 +23,12 @@ public class TimePlatform : MultiStateObjectComponent
         switch (newTimeState)
         {
             case TimeState.Present:
-                _targetPosition = _pastPosition;
+                _targetPosition = _presentPosition;
                 
                 break;
             
             case TimeState.Past:
-                _targetPosition = _presentPosition;
+                _targetPosition = _pastPosition;
                 
                 break;
         }
