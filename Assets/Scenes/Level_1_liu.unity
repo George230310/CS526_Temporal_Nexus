@@ -29320,6 +29320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Switch_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7849995943357923875, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d363d432b2cac574a925c7d958e23339, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb933ba65b5c35d4babad7a1f8abe96f, type: 3}
 --- !u!1 &1217671433
@@ -34815,6 +34819,30 @@ PrefabInstance:
         to interact
 
         ''T'' to time travel'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1095494554}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1095494554}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 8456070741743183710, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -44579,6 +44607,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1890666119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115108250314799812, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+  m_PrefabInstance: {fileID: 1479878924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1894217114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47685,6 +47718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+      propertyPath: HomeButton
+      value: 
+      objectReference: {fileID: 1890666119}
     - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
       propertyPath: PauseMenuPanel
       value: 

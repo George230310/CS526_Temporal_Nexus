@@ -128,6 +128,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDataSender: 0
+  EnabledSprite: {fileID: 21300000, guid: d363d432b2cac574a925c7d958e23339, type: 3}
+  DisabledSprite: {fileID: 21300000, guid: 0abf33c5d4e7f1446a60db38526800be, type: 3}
 --- !u!61 &7849995943357923886
 BoxCollider2D:
   m_ObjectHideFlags: 0

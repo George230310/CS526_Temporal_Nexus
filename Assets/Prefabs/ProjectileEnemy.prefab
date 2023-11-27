@@ -102,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 2436324932733575431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2436324932823582354}
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffa73c0d59ab7404abc5c57e6b077914, type: 3}
   m_Color: {r: 0.8584906, g: 0.28696617, b: 0.06074225, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 2306926082933486853}
   - component: {fileID: 8976902636096517370}
   - component: {fileID: 4800288592053303944}
-  - component: {fileID: 4992727038409691390}
+  - component: {fileID: 378262079631959496}
   m_Layer: 0
   m_Name: ProjectileEnemy
   m_TagString: Enemy
@@ -287,8 +287,8 @@ MonoBehaviour:
   fireAngleMin: 0
   fireAngleMax: 180
   fireAngleOffset: 30
---- !u!60 &4992727038409691390
-PolygonCollider2D:
+--- !u!61 &378262079631959496
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -300,7 +300,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05284977, y: -1.0569935}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -310,11 +310,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 5.9808006, y: -1.7036495}
-      - {x: -0.008873999, y: 3.463275}
-      - {x: -5.913156, y: -1.7102336}
+  serializedVersion: 2
+  m_Size: {x: 14.846613, y: 8.821752}
+  m_EdgeRadius: 0
 --- !u!1 &2794791045740033536
 GameObject:
   m_ObjectHideFlags: 0

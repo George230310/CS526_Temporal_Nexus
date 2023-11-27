@@ -16,11 +16,23 @@ public class Switch : MultiStateObjectComponent
 
     public bool isDataSender;
 
-    private void Start()
+    public Sprite EnabledSprite;
+
+    public Sprite DisabledSprite;
+
+    private void Awake()
     {
         // initialize switch sprite
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _spriteRenderer.color = Color.yellow;
+        if (_isSwitchEnabled)
+        {
+            _spriteRenderer.sprite = EnabledSprite;
+        }
+        else
+        {
+            _spriteRenderer.sprite = DisabledSprite;
+        }
     }
     
     // on time state change function of switch
@@ -32,6 +44,7 @@ public class Switch : MultiStateObjectComponent
             case TimeState.Past:
                 _isSwitchEnabled = true;
                 isInteractable = true;
+                _spriteRenderer.sprite = EnabledSprite;
                 
                 // make switch color brighter
                 if (_spriteRenderer)
@@ -44,6 +57,7 @@ public class Switch : MultiStateObjectComponent
             case TimeState.Present:
                 _isSwitchEnabled = false;
                 isInteractable = false;
+                _spriteRenderer.sprite = DisabledSprite;
                 
                 // make switch color darker
                 if (_spriteRenderer)
