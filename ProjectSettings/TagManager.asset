@@ -13,6 +13,8 @@ TagManager:
   - Enemy
   - Bullet
   - HangingPlatform
+  - HomeButton
+  - ResumeButton
   layers:
   - Default
   - TransparentFX

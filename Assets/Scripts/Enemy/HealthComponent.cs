@@ -18,6 +18,15 @@ public class HealthComponent : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        if (gameObject.CompareTag("Player"))
+        {
+            PlayerController playerController = gameObject.GetComponent<PlayerController>();
+            playerController.HealthDamageText.text = $"-{damage} HP";
+            playerController.HealthDamageText.gameObject.SetActive(true);
+            playerController.HealthDamageText.DOFade(1f, 1f)
+                .OnComplete(() => { playerController.HealthDamageText.gameObject.SetActive(false); })
+                .OnKill(() => { playerController.HealthDamageText.gameObject.SetActive(false); });
+        }
         if (health <= 0f)
         {
             Die();
@@ -50,7 +59,7 @@ public class HealthComponent : MonoBehaviour
                 }
             }
 
-            if (nearestCheckpoint!= null)
+            if (nearestCheckpoint != null)
             {
                 player.transform.position = nearestCheckpoint.PositionAtCheckpoint;
                 health = nearestCheckpoint.HealthAtCheckpoint;

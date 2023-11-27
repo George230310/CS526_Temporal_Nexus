@@ -4817,6 +4817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c185d3fa2ec856645b3c07cedc13c11b, type: 3}
+--- !u!1 &129167267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115108250314799812, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+  m_PrefabInstance: {fileID: 1857356620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &129516288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7864495806012784874, guid: c185d3fa2ec856645b3c07cedc13c11b, type: 3}
@@ -7756,7 +7761,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &215750670
 PrefabInstance:
@@ -10067,7 +10072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0374bbe6c92245ec917fd73a31f39ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   moveDistance: 50
 --- !u!1001 &262742282
 PrefabInstance:
@@ -39312,6 +39317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+      propertyPath: HomeButton
+      value: 
+      objectReference: {fileID: 129167267}
     - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
       propertyPath: PauseMenuPanel
       value: 
@@ -69428,6 +69437,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 168824323602624585, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
   m_PrefabInstance: {fileID: 965539012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770949943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+  m_PrefabInstance: {fileID: 965539012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bc897ae91f2374b96545dd4961d22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1771214917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7730985316445374913, guid: 622831583f49a4749a3794d098abfdda, type: 3}
@@ -72991,6 +73011,30 @@ PrefabInstance:
     - target: {fileID: 248935565862260646, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1770949943}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1770949943}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_AnchoredPosition.x
