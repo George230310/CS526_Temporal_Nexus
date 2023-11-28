@@ -73041,12 +73041,24 @@ PrefabInstance:
       value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048753940698541014, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -192.5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042172, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_Name
