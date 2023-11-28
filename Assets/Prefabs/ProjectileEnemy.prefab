@@ -238,6 +238,7 @@ MonoBehaviour:
   moveDistance: 2
   detectionRangeForPlayer: 40
   shouldChasePlayer: 1
+  enemyChaseSpeed: 6
 --- !u!114 &2306926082933486853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
-  Loot: {fileID: 0}
+  Loot: {fileID: 92515290159467898, guid: 5f194e412a92e6f46ac1011f77fdb8ce, type: 3}
   enemySprite: {fileID: 2436324932733575431}
   enemyEggSprite: {fileID: 2794791045740033536}
   shootCoolDown: 3.5
