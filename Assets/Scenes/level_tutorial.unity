@@ -973,7 +973,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 256
+  m_RootOrder: 240
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &53949853
 SpriteRenderer:
@@ -4964,7 +4964,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 294
+  m_RootOrder: 282
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &297409533
 SpriteRenderer:
@@ -7882,7 +7882,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 295
+  m_RootOrder: 283
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &443575485
 BoxCollider2D:
@@ -11392,7 +11392,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 380
+  m_RootOrder: 369
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &662958491
 BoxCollider2D:
@@ -13933,7 +13933,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 328
+  m_RootOrder: 324
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &782467056
 BoxCollider2D:
@@ -16368,6 +16368,30 @@ PrefabInstance:
 
         ''T'' to time travel'
       objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1120407403}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1120407403}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 8456070742286042172, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_Name
       value: GameHUD
@@ -18267,7 +18291,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 327
+  m_RootOrder: 323
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1011204920
 SpriteRenderer:
@@ -19970,11 +19994,26 @@ PrefabInstance:
       value: PauseMenuManager
       objectReference: {fileID: 0}
     - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+      propertyPath: HomeButton
+      value: 
+      objectReference: {fileID: 1606713212}
+    - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 422548287}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+--- !u!114 &1120407403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+  m_PrefabInstance: {fileID: 1120407402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bc897ae91f2374b96545dd4961d22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122256629
 GameObject:
   m_ObjectHideFlags: 0
@@ -24271,7 +24310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 257
+  m_RootOrder: 241
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1352272231
 BoxCollider2D:
@@ -24382,7 +24421,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2002122301}
-  m_RootOrder: 361
+  m_RootOrder: 349
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1354377528
 BoxCollider2D:
@@ -28935,6 +28974,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.32, y: 0.88}
   m_EdgeRadius: 0
+--- !u!1 &1606713212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115108250314799812, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+  m_PrefabInstance: {fileID: 935109214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1606914897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36044,6 +36088,8 @@ Transform:
   - {fileID: 1170391783}
   - {fileID: 1225668135}
   - {fileID: 1616425638}
+  - {fileID: 53949852}
+  - {fileID: 1352272230}
   - {fileID: 321207664}
   - {fileID: 1461310973}
   - {fileID: 1614080230}
@@ -36060,8 +36106,6 @@ Transform:
   - {fileID: 235592109}
   - {fileID: 526239930}
   - {fileID: 884198310}
-  - {fileID: 53949852}
-  - {fileID: 1352272230}
   - {fileID: 120935141}
   - {fileID: 304537982}
   - {fileID: 679440438}
@@ -36086,6 +36130,8 @@ Transform:
   - {fileID: 400733778}
   - {fileID: 1400908744}
   - {fileID: 573221562}
+  - {fileID: 297409532}
+  - {fileID: 443575484}
   - {fileID: 36615307}
   - {fileID: 1109917598}
   - {fileID: 73931208}
@@ -36098,8 +36144,6 @@ Transform:
   - {fileID: 281177633}
   - {fileID: 160091804}
   - {fileID: 632736454}
-  - {fileID: 297409532}
-  - {fileID: 443575484}
   - {fileID: 567844168}
   - {fileID: 845166694}
   - {fileID: 1219001644}
@@ -36127,12 +36171,12 @@ Transform:
   - {fileID: 90189720}
   - {fileID: 814316136}
   - {fileID: 1495240662}
+  - {fileID: 1011204919}
+  - {fileID: 782467055}
   - {fileID: 430490635}
   - {fileID: 2092708183}
   - {fileID: 998948496}
   - {fileID: 755219035}
-  - {fileID: 1011204919}
-  - {fileID: 782467055}
   - {fileID: 1978892689}
   - {fileID: 425692192}
   - {fileID: 1088050642}
@@ -36153,6 +36197,7 @@ Transform:
   - {fileID: 1517448772}
   - {fileID: 1205453168}
   - {fileID: 692681744}
+  - {fileID: 1354377527}
   - {fileID: 959155009}
   - {fileID: 1023369666}
   - {fileID: 1949058668}
@@ -36165,7 +36210,6 @@ Transform:
   - {fileID: 1753326122}
   - {fileID: 1538447427}
   - {fileID: 1994852879}
-  - {fileID: 1354377527}
   - {fileID: 40084991}
   - {fileID: 1863025021}
   - {fileID: 1641649189}
@@ -36173,6 +36217,7 @@ Transform:
   - {fileID: 1473026144}
   - {fileID: 1847213258}
   - {fileID: 1933797544}
+  - {fileID: 662958490}
   - {fileID: 737387740}
   - {fileID: 1193270804}
   - {fileID: 464572041}
@@ -36181,10 +36226,9 @@ Transform:
   - {fileID: 1681328270}
   - {fileID: 948886078}
   - {fileID: 455277348}
-  - {fileID: 1456304689}
   - {fileID: 1809866599}
   - {fileID: 1278781967}
-  - {fileID: 662958490}
+  - {fileID: 1456304689}
   - {fileID: 6611821}
   m_Father: {fileID: 239227449}
   m_RootOrder: 0
