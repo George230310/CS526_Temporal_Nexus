@@ -18,7 +18,7 @@ public class RotatePlatform : MonoBehaviour
     private void Start()
     {
         _startRot = transform.rotation;
-        _endRot = Quaternion.AngleAxis(rotateAngle, Vector3.forward);
+        _endRot = transform.rotation * Quaternion.AngleAxis(rotateAngle, Vector3.forward);
     }
 
     [ContextMenu("Rotate")]
