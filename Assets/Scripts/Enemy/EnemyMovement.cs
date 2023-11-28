@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool shouldChasePlayer;
 
-    public float ChaseForceMultiplier = 3f;
+    public float enemyChaseSpeed = 6f;
 
     private void Start()
     {
@@ -45,11 +45,11 @@ public class EnemyMovement : MonoBehaviour
             bool isOnPlayerRight = (myPos.x - playerPos.x) > 0f;
             if (isOnPlayerRight)
             {
-                rb.AddForce(-Vector2.right * ChaseForceMultiplier);
+                transform.position -= new Vector3(1f, 0f, 0f) * (enemyChaseSpeed * Time.deltaTime);
             }
             else
             {
-                rb.AddForce(Vector2.right * ChaseForceMultiplier);
+                transform.position += new Vector3(1f, 0f, 0f) * (enemyChaseSpeed * Time.deltaTime);
             }
         }
         // else patrol
