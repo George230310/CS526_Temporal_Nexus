@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool shouldChasePlayer;
 
+    public float ChaseForceMultiplier = 3f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,11 +45,11 @@ public class EnemyMovement : MonoBehaviour
             bool isOnPlayerRight = (myPos.x - playerPos.x) > 0f;
             if (isOnPlayerRight)
             {
-                rb.AddForce(-Vector2.right);
+                rb.AddForce(-Vector2.right * ChaseForceMultiplier);
             }
             else
             {
-                rb.AddForce(Vector2.right);
+                rb.AddForce(Vector2.right * ChaseForceMultiplier);
             }
         }
         // else patrol
