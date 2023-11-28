@@ -26988,6 +26988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73122071d049f940aa0858e2261a15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupDelay: 1
   HealAmount: 40
   HealAmountText: {fileID: 1086476569}
   myMultiStateObject: {fileID: 0}
@@ -30972,6 +30973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
+      propertyPath: HomeButton
+      value: 
+      objectReference: {fileID: 1624886840}
     - target: {fileID: 5567556490468041557, guid: d6494eabc353b1142acbfb3c82f14c0d, type: 3}
       propertyPath: PauseMenuPanel
       value: 
@@ -43390,6 +43395,30 @@ PrefabInstance:
         to interact
 
         ''T'' to time travel'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1336545050}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274344021749591258, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1336545050}
+    - target: {fileID: 2664148310250592797, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 8456070741743183710, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -59876,6 +59905,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1624886840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6115108250314799812, guid: e8f425ac8237a1b428971c02397b891f, type: 3}
+  m_PrefabInstance: {fileID: 1163872837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1626117937
 GameObject:
   m_ObjectHideFlags: 0
@@ -68915,6 +68949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73122071d049f940aa0858e2261a15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupDelay: 1
   HealAmount: 40
   HealAmountText: {fileID: 1368700793}
   myMultiStateObject: {fileID: 0}

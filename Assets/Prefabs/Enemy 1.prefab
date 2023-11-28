@@ -232,9 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9733577e3517489ca547b3a7c579b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 5
+  fallSpeed: 10
   moveSpeed: 2
   moveDistance: 2
+  detectionRangeForPlayer: 40
+  shouldChasePlayer: 1
+  enemyChaseSpeed: 6
 --- !u!114 &2306926082933486853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
-  Loot: {fileID: 0}
+  Loot: {fileID: 92515290159467898, guid: 5f194e412a92e6f46ac1011f77fdb8ce, type: 3}
   hideInPast: 0
 --- !u!1 &6240627825673522212
 GameObject:

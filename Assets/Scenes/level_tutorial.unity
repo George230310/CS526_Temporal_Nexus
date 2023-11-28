@@ -1813,6 +1813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2436324932823582357, guid: 59b9710686a9341d19fb3c283140314e, type: 3}
+      propertyPath: shouldChasePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5327272965781143080, guid: 59b9710686a9341d19fb3c283140314e, type: 3}
       propertyPath: Loot
       value: 
